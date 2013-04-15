@@ -113,7 +113,7 @@
 								
 								if (mysqli_num_rows($result) == 1){
 									$_SESSION['currentUser'] = $username;
-									header("Location: home.php"); 
+									header("Location: home.html"); 
 									//$return = "<font color=#008000><Center><b>**Successful Login**</b></Center></font>";
 								}else{
 									 $return = "<font color=#ff0000><Center><b>**Failed Login**</b></Center></font>";
