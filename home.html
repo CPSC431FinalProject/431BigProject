@@ -1,6 +1,6 @@
 <?php
 session_start();
-currentUser = $_SESSION['currentUser'];
+$currentUser = $_SESSION['currentUser'];
 
 ?>
 
@@ -38,7 +38,7 @@ currentUser = $_SESSION['currentUser'];
 <div id="header-wrap"><header>
 
  	<hgroup>
-        <h1><a href="index.html">Welcome</a></h1>
+        <h1><a href="home.html">Welcome</a></h1>
     </hgroup>
 
     <nav>
@@ -50,7 +50,7 @@ currentUser = $_SESSION['currentUser'];
 	</nav>
 
     <div class="logout">
-        <span><?php echo $currentUser; ?></span> <a href="logout.php">Logout</a>
+        <span><?php $currentUser = $_SESSION['currentUser']; echo $currentUser; ?></span> <a href="logout.php">Logout</a>
     </div>
 
    <form id="quick-search" method="get" action="index.html">
@@ -144,7 +144,7 @@ currentUser = $_SESSION['currentUser'];
 	</p>
 
 	<p class="footer-right">
-	   	<a href="wang.ecs.fullerton.edu">CPSC 431 Database and Web Applications</a>
+	   	<a href="http://wang.ecs.fullerton.edu/cpsc431/">CPSC 431 Database and Web Applications</a>
     </p>
 
 <!-- /footer -->
