@@ -581,6 +581,55 @@ header .search button.btn {
 }
 
 /* Sidemenu */
+
+.sidemenuLeft {
+
+border: 1px dotted blue;
+
+background-color: #EEFFFF;
+
+margin: 5px;
+
+padding: 5px;
+
+}
+
+.sidemenuLeft  li {
+
+list-style: none;
+
+margin: 5px;
+
+}
+
+.sidemenuLeft  li a {
+
+text-decoration: none;
+
+color: black;
+
+}
+.sidemenuLeft  li a:hover {
+text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .sidemenu ul {
 	margin: 5px 0 24px 0;
     padding: 0;

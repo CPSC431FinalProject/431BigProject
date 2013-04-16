@@ -53,7 +53,7 @@ $currentUser = $_SESSION['currentUser'];
         <span><?php $currentUser = $_SESSION['currentUser']; echo $currentUser; ?></span> <a href="logout.php">Logout</a>
     </div>
 
-   <form id="quick-search" method="get" action="index.html">
+   <form id="quick-search" method="get" action="home.html">
       <fieldset class="search">
          <label for="qsearch">Search:</label>
          <input class="tbox" id="qsearch" type="text" name="qsearch" value="Search..." title="Start typing and hit ENTER" />
@@ -77,7 +77,7 @@ $currentUser = $_SESSION['currentUser'];
 
       		    <div class="primary">
 
-                    <h2><a href="index.html">We could use this as the main landing page after login?</a></h2>
+                    <h2><a href="home.html">We could use this as the main landing page after login?</a></h2>
 
                	    <div class="image-section">
               		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>
@@ -105,7 +105,7 @@ $currentUser = $_SESSION['currentUser'];
          	    <h3>User</h3>
 
                 <p>
-		        <a href="index.html"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
+		        <a href="home.html"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
                 We could add a users image here, thats a requirement?
 			    </p>
 
@@ -115,11 +115,12 @@ $currentUser = $_SESSION['currentUser'];
 
 				<h3>Additional Navigation</h3>
                 <ul>
-					<li><a href="index.html">Chat</a></li>
-					<li><a href="index.html#TemplateInfo">Forum</a></li>
+					<li><a href="home.html">Chat</a></li>
+					<li><a href="home.html#TemplateInfo">Forum</a></li>
 				</ul>
 
 			</div>
+			
         <!-- /sidebar -->
 		</div>
 
@@ -131,8 +132,6 @@ $currentUser = $_SESSION['currentUser'];
 		
 <!-- extra -->
 <div id="extra-wrap"><div id="extra" class="clearfix">
-
-
 <!-- /extra -->
 </div></div>
 
