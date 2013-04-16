@@ -42,13 +42,13 @@ $currentUser = $_SESSION['currentUser'];
 <div id="header-wrap"><header>
 
  	<hgroup>
-        <h1><a href="home.php">Welcome</a></h1>
+        <h1><a href="messasges.php">Messages</a></h1>
     </hgroup>
 
     <nav>
 		<ul>
-			<li id="current"><a href="home.php">Home</a><span></span></li>
-			<li><a href="messages.php">Messages</a><span></span></li>
+			<li> <a href="home.php">Home</a><span></span></li>
+			<li id="current"><a href="#messages.html">Messages</a><span></span></li>
 			<li><a href="settings.php">User Settings</a><span></span></li>
 		</ul>
 	</nav>
@@ -77,25 +77,18 @@ $currentUser = $_SESSION['currentUser'];
    	    <!-- main -->
         <div id="main">
 
-      	    <article class="post">
+            <div class="main-content">
 
-      		    <div class="primary">
+      	    <h2><a href="index.html">Messages</a></h2>
 
-                    <h2><a href="home.php">Welcome</a></h2>
+					<ul class="archive">
 
-               	    <div class="image-section">
-              		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>
-         	        </div>
-
-                    <p>Found this template, heavily modified it, what do you guys think? 
-                    </p>
-
-
-                </div>
-		    </article>
-
-         
-
+						<li>
+							<div class="post-title"><a href="home.php">Suspendisse bibendum.</a></div>
+							<div class="post-details"><a href="deleteMsg.php">Delete</a> 
+						</li>
+					</ul>					
+            </div>
         <!-- /main -->
         </div>
 

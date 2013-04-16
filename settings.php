@@ -47,9 +47,9 @@ $currentUser = $_SESSION['currentUser'];
 
     <nav>
 		<ul>
-			<li id="current"><a href="home.php">Home</a><span></span></li>
+			<li ><a href="home.php">Home</a><span></span></li>
 			<li><a href="messages.php">Messages</a><span></span></li>
-			<li><a href="settings.php">User Settings</a><span></span></li>
+			<li id="current"><a href="settings.php">User Settings</a><span></span></li>
 		</ul>
 	</nav>
 
@@ -76,25 +76,10 @@ $currentUser = $_SESSION['currentUser'];
 
    	    <!-- main -->
         <div id="main">
+			<div class="main-content">
 
-      	    <article class="post">
-
-      		    <div class="primary">
-
-                    <h2><a href="home.php">Welcome</a></h2>
-
-               	    <div class="image-section">
-              		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>
-         	        </div>
-
-                    <p>Found this template, heavily modified it, what do you guys think? 
-                    </p>
-
-
-                </div>
-		    </article>
-
-         
+      	    <h2><a href="index.html">Settings</a></h2>					
+            </div>
 
         <!-- /main -->
         </div>
