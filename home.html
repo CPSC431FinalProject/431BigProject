@@ -44,7 +44,7 @@ $currentUser = $_SESSION['currentUser'];
     <nav>
 		<ul>
 			<li id="current"><a href="home.html">Home</a><span></span></li>
-			<li><a href="#inbox.html">Inbox</a><span></span></li>
+			<li><a href="#messages.html">Messages</a><span></span></li>
 			<li><a href="#uSettings.html">User Settings</a><span></span></li>
 		</ul>
 	</nav>
@@ -77,7 +77,7 @@ $currentUser = $_SESSION['currentUser'];
 
       		    <div class="primary">
 
-                    <h2><a href="home.html">We could use this as the main landing page after login?</a></h2>
+                    <h2><a href="home.html">Welcome</a></h2>
 
                	    <div class="image-section">
               		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>
@@ -88,9 +88,18 @@ $currentUser = $_SESSION['currentUser'];
 
 
                 </div>
+			<aside>
+               	    <div class="post-meta">
+                  	    <h4>Post Info</h4>
+                     	<ul>
+                           <li class="comment"><a href="#">New Message</a></li>
+                           <li class="comment"><a href="#">Inbox</a></li>
+                           <li class="comment"><a href="#">Deleted</a></li>
+                        </ul>
+					</div>
 
+                </aside>
 		    </article>
-
 
          
 
