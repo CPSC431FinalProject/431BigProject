@@ -414,9 +414,9 @@ footer {
 /* Logo */
 header hgroup {
     position: absolute;
-    background: url(../images/logo.png) no-repeat;
+    background: url(../images/logo2.png) no-repeat;
     height: 62px;
-    width: 215px;
+    width: 256px;
     display: block;
     top: 100px;
     left: 10px;
