@@ -40,7 +40,7 @@ $result = mysqli_query($con,$sql);
 						<li>
 							<div class='post-title'>From: <?php echo $row['sender']; ?></a></div>
 							<div class='post-title'>Subject: <?php echo $row['subject']; ?></a></div>
-							<div class='post-details'><?php echo$row['msgText']; ?><a href='deleteMsg.php'>Delete</a> 
+							<div class='post-details'><?php echo $row['msgText']; $_SESSION['delete_id'] = $row['id'];?><a href='delete.php'>Delete</a> 
 						</li>
 				
 						
