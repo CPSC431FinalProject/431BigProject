@@ -5,10 +5,9 @@ if(!isset($_SESSION['currentUser'])){
    header("Location:index.php");
 }
 $currentUser = $_SESSION['currentUser'];
-$_SESSION['NAV'] = 'home';
+$_SESSION['NAV'] = 'chat';
 include('header.html');
 ?>
-
 <!-- content-wrap -->
 <div id="content-wrap">
 
@@ -17,21 +16,10 @@ include('header.html');
 
    	    <!-- main -->
         <div id="main">
+			<div class="main-content">
 
-      	    <article class="post">
-
-      		    <div class="primary">
-
-                    <h2><a href="home.php">Welcome</a></h2>
-
-               	    <div class="image-section">
-              		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>
-         	        </div>
-
-                </div>
-		    </article>
-
-         
+      	    <h2><a href="chat.php">Chat</a></h2>					
+            </div>
 
         <!-- /main -->
         </div>

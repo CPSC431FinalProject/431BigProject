@@ -46,18 +46,40 @@ $NAV = $_SESSION['NAV'];
 					echo "<li id='current' ><a href='home.php'>Home</a><span></span></li>";
 					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
 					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
 				}
 				if($NAV == 'messages')
 				{
 					echo "<li><a href='home.php'>Home</a><span></span></li>";
 					echo "<li id='current'><a href='messages.php'>Messages</a><span></span></li>";
 					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
 				}
 				if($NAV == 'settings')
 				{
 					echo "<li><a href='home.php'>Home</a><span></span></li>";
 					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
 					echo "<li id='current'><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+				}
+				if($NAV == 'chat')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li  id='current'><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+				}
+				if($NAV == 'forum')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li  id='current'><a href='forum.php'>Forum</a><span></span></li>";
 				}
 			?>
 		</ul>
