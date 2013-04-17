@@ -38,7 +38,8 @@ $result = mysqli_query($con,$sql);
 						//populate messages from the database
 						while($row = mysqli_fetch_array($result)) : ?>
 						<li>
-							<div class='post-title'><?php echo $row['subject']; ?></a></div>
+							<div class='post-title'>From: <?php echo $row['sender']; ?></a></div>
+							<div class='post-title'>Subject: <?php echo $row['subject']; ?></a></div>
 							<div class='post-details'><?php echo$row['msgText']; ?><a href='deleteMsg.php'>Delete</a> 
 						</li>
 				
