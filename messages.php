@@ -31,7 +31,7 @@ $result = mysqli_query($con,$sql);
 
             <div class="main-content">
 
-      	    <h2><a href="messages.php">Messages</a></h2>
+      	    <h2><a href="messages.php">Messages</a><div class='post-details'><a href='newMessage.php'>New Message</a> </h2>
 
 					<ul class="archive">
 					<?php
