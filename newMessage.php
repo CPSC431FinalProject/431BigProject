@@ -56,11 +56,12 @@ if(!empty($_POST['userTo']) && !empty($_POST['message']) && !empty($_POST['subje
 			$subject = $_POST['subject'];
 			$sender = $currentUser;
 			$status = "New";
+			$today = date("F j, Y, g:i a"); 
 			
 			//prepare the mysql query to insert into mailbox table
-			$sql="INSERT INTO mailbox (messageID, subject, msgText, sender, receiver, status)
+			$sql="INSERT INTO mailbox (messageID, subject, msgText, sender, receiver, status, dateTime)
 			VALUES
-			('$messageID','$subject','$message', '$sender', '$username', '$status')";
+			('$messageID','$subject','$message', '$sender', '$username', '$status', '$today')";
 			if(!mysqli_query($con,$sql))
 				{
 					die('Error: ' . mysqli_error($con));
