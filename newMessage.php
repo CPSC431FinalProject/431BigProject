@@ -51,12 +51,10 @@ if(!empty($_POST['userTo']) && !empty($_POST['message']) && !empty($_POST['subje
 		$result = mysqli_query($con,$sql);
 		
 		if (mysqli_num_rows($result) == 1){
-			$return = "<font color=#008000><Center><b>**User Exists**</b></Center></font>";
 			//since we know taht the user exists, now we can set the variables to send as a message
 			$message = $_POST['message'];
 			$subject = $_POST['subject'];
 			$sender = $currentUser;
-			$messageID = 12;
 			$status = "New";
 			
 			//prepare the mysql query to insert into mailbox table
@@ -67,12 +65,12 @@ if(!empty($_POST['userTo']) && !empty($_POST['message']) && !empty($_POST['subje
 				{
 					die('Error: ' . mysqli_error($con));
 				}
-				$return = "<font color=#ff0000><Center><b>**Message Sent**</b></Center></font>";
+				$return = "<html><body onload=\"alert('Submitted');\"><p>Submission successful.</p></body></html>";
 				print($return);
 		}else{
-			 $return = "<font color=#ff0000><Center><b>**User Doesn't Exist**</b></Center></font>";
+			 $return ="<html><body onload=\"alert('Submitted');\"><p>User does not exist.</p></body></html>";
 		}
-		//used for debugging
+		print $return;
 		//printf("Select returned %d rows.\n", mysqli_num_rows($result));
 	}
 ?>
