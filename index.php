@@ -115,7 +115,7 @@
 									$_SESSION['currentUser'] = $username;
 									$currentUser = $username;
 									$time = date('G:ia');
-									
+									$_SESSION['USER_ACTIVITY'] = time();
 									// this is where we will update the user that is currently logged in, into the chat database table.
 									$sql="INSERT INTO activeUsers (userName, dateTime)
 												VALUES
