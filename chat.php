@@ -20,7 +20,8 @@ $con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
         <div id="main">
 			<div class="main-content">
 
-      	    <h2><a href="chat.php">Chat</a></h2>					
+      	    <h2><a href="chat.php">Chat</a></h2>
+			<?php include('chatForm.html'); ?>			
             </div>
 
         <!-- /main -->
