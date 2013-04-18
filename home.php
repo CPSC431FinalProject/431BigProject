@@ -7,6 +7,10 @@ if(!isset($_SESSION['currentUser'])){
 $currentUser = $_SESSION['currentUser'];
 $_SESSION['NAV'] = 'home';
 include('header.html');
+$time = date('G:ia');
+
+//connection to the database
+$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
 ?>
 
 <!-- content-wrap -->
@@ -23,6 +27,7 @@ include('header.html');
       		    <div class="primary">
 
                     <h2><a href="home.php">Welcome</a></h2>
+
 
                	    <div class="image-section">
               		    <img src="images/img-post.jpg" alt="image post" height="206" width="498"/>

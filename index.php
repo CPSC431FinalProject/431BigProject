@@ -113,6 +113,17 @@
 								
 								if (mysqli_num_rows($result) == 1){
 									$_SESSION['currentUser'] = $username;
+									$currentUser = $username;
+									$time = date('G:ia');
+									
+									// this is where we will update the user that is currently logged in, into the chat database table.
+									$sql="INSERT INTO activeUsers (userName, dateTime)
+												VALUES
+												('$currentUser','$time')";
+												if(!mysqli_query($con,$sql))
+													{
+														die('Error: ' . mysqli_error($con));
+													}
 									header("Location: home.php"); 
 									//$return = "<font color=#008000><Center><b>**Successful Login**</b></Center></font>";
 								}else{

@@ -7,6 +7,8 @@ if(!isset($_SESSION['currentUser'])){
 $currentUser = $_SESSION['currentUser'];
 $_SESSION['NAV'] = 'settings';
 include('header.html');
+//connection to the database
+$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">

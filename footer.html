@@ -1,16 +1,26 @@
-
+<?php
+//query the database to get the items inside mailbox table to populate the users messages
+$sql = "SELECT * FROM activeUsers";
+$result = mysqli_query($con,$sql);
+?>
         <!-- sidebar -->
 		<div id="sidebar">
 
       	    <div class="about-me">
 
-         	    <h3>User</h3>
+         	    <h3>Users Online</h3>
 
+				<?php
+						//populate messages from the database
+						while($row = mysqli_fetch_array($result)) : ?>
                 <p>
-		        <a href="home.php"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
-                User Name
+		        <a href="chat.php"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
+                <?php echo $row['userName']; ?>
+				<br>
+				<br>
 			    </p>
-
+				
+				<?php endwhile;?>
             </div>
 			
         <!-- /sidebar -->
