@@ -34,7 +34,7 @@ while($row = mysqli_fetch_array($result)) :
 	$user = $row['userName'];
 	//check to see if the user has been active in the past 10 minutes
 	//if not active in past 10 minutes, then delete from table
-	if (time() - $userLastStamp > 3600) {
+	if (time() - $userLastStamp > 600) {
 		$sql = "DELETE FROM `activeUsers` WHERE `userName`= '$user'";
 		$result = mysqli_query($con,$sql);
 	} 
