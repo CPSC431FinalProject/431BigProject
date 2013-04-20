@@ -14,8 +14,8 @@ We can use this to try and keep track on what is still needed, and who is curren
 4. Registered users:
 	a. Login with a registered username and password 	//Done
 	b. Change password
-	c. Send internal messages
-	d. Read/delete messages
+	c. Send internal messages							//Done
+	d. Read/delete messages								//Done
 	e. View clubs and forums
 	f. Join a club
 	g. Start/join a chat room
