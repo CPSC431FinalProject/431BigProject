@@ -29,7 +29,7 @@ $sql = "SELECT * FROM activeUsers";
 //run the query
 $result = mysqli_query($con,$sql); 
 
-while($row = mysqli_fetch_array($result)) :
+while(@$row = mysqli_fetch_array($result)) :
 	$userLastStamp = $row['dateTime'];
 	$user = $row['userName'];
 	//check to see if the user has been active in the past 10 minutes
