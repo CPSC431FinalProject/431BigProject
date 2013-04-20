@@ -87,7 +87,7 @@
 							//use session variables to log in
 							session_start();
 							
-							$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+							include_once "mysql.connect.php";
 							// Check connection
 							if (mysqli_connect_errno())
 							  {

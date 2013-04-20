@@ -6,9 +6,9 @@ if(!isset($_SESSION['currentUser'])){
 }
 $currentUser = $_SESSION['currentUser'];
 $_SESSION['NAV'] = 'settings';
-include('header.html');
+include_once('header.html');
 //connection to the database
-$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+include_once "mysql.connect.php";
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">
@@ -26,5 +26,5 @@ $con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
         <!-- /main -->
         </div>
 <?php
-include('footer.html');
+include_once('footer.html');
 ?>

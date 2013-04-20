@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+include_once "mysql.connect.php";
 if (!$con)
   {
   die('Could not connect: ' . mysql_error());

@@ -1,7 +1,7 @@
 <?php
 session_start();
 $currentUser = $_SESSION['currentUser'];
-$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+include_once "mysql.connect.php";
 $_SESSION['USER_ACTIVITY'] = time();
 
 

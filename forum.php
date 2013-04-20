@@ -8,7 +8,7 @@ $currentUser = $_SESSION['currentUser'];
 $_SESSION['NAV'] = 'forum';
 include('header.html');
 //connection to the database
-$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+include_once "mysql.connect.php";
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">
