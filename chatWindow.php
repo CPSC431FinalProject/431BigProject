@@ -62,7 +62,6 @@ $(document).ready(function(){
 </head>
 <body>
 <form method="POST" name="" action="">
-<input name="sender" type="text" id="texta" value="<?php echo $sender ?>"/>
 <div class="refresh">
 <?php
 $con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
