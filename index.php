@@ -91,7 +91,7 @@
 							// Check connection
 							if (mysqli_connect_errno())
 							  {
-							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+								echo "Failed to connect to MySQL: " . mysqli_connect_error();
 							  }
 							
 							
@@ -108,7 +108,7 @@
 								
 
 								//create sql string to retrieve the string from the database table "users"
-								$sql = "SELECT * FROM `users` WHERE userName = '$username' AND password = '$passwordHash'";
+								$sql = "SELECT * FROM users WHERE userName = '$username' AND password = '$passwordHash'";
 								$result = mysqli_query($con,$sql);
 								
 								if (mysqli_num_rows($result) == 1){
@@ -118,7 +118,7 @@
 									//$time = date('G:ia');
 									$_SESSION['USER_ACTIVITY'] = time();
 									// this is where we will update the user that is currently logged in, into the chat database table.
-									$sql="INSERT INTO activeUsers (userName, dateTime)
+									$sql = "INSERT INTO activeUsers (userName, dateTime)
 												VALUES
 												('$currentUser','$time')";
 												if(!mysqli_query($con,$sql))
@@ -137,7 +137,8 @@
 							
 							
 							//**********************************This is the code to register a new user************************************
-							if(!empty($_POST['realName']) && !empty($_POST['usernamesignup']) && !empty($_POST['passwordsignup']) && !empty ($_POST['passwordsignup_confirm'])){
+							if(!empty($_POST['realName']) && !empty($_POST['usernamesignup']) && !empty($_POST['passwordsignup']) && 
+							!empty ($_POST['passwordsignup_confirm'])){
 								$passWord = $_POST['passwordsignup'];
 								$passWord2 = $_POST['passwordsignup_confirm'];
 								$realName = $_POST['realName'];
@@ -155,16 +156,15 @@
 									}
 								else{
 									$passWord = md5($passWord);
-									$sql="INSERT INTO users (UserFullName, userName , password)
-										VALUES
-										('$_POST[realName]','$_POST[usernamesignup]','$passWord')";
+									$sql="INSERT INTO users (UserFullName, userName, password)
+										VALUES('$_POST[realName]','$_POST[usernamesignup]','$passWord')";
 									if(!mysqli_query($con,$sql))
 									{
 										die('Error: ' . mysqli_error($con));
 									}
 									header("home.php");
 									}
-								}
+							}
 							
 							?>
                         </div>
@@ -175,3 +175,4 @@
         </div>
     </body>
 </html>
+<?php ob_flush(); ?>
