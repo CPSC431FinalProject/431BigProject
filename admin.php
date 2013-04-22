@@ -5,19 +5,16 @@ if(!isset($_SESSION['currentUser'])){
    header("Location:index.php");
 }
 $currentUser = $_SESSION['currentUser'];
+$_SESSION['NAV'] = 'admin';
 
-if ($_SESSION['STATUS'] == 'ADMIN'){
-			//since the result is equal to one, we know that the user is an admin
-			//setup to display the admin priviladges page
-			include_once('adminHeader.html');
-			$_SESSION['NAV'] = 'settings';
-		}
+if($_SESSION['STATUS'] == "ADMIN")
+	{
+		//WHERE ALLOWED TO BE IN HERE
+	}
 	else{
-		//grab the session type to know which type of pages the user is able to get
-		$_SESSION['NAV'] = 'settings';
-		include_once('header.html');
-	}	
-
+		header("Location:home.php");
+	}
+include_once('adminHeader.html');
 //connection to the database
 include_once "mysql.connect.php";
 ?>
@@ -31,11 +28,11 @@ include_once "mysql.connect.php";
         <div id="main">
 			<div class="main-content">
 
-      	    <h2><a href="settings.php">Change Password</a></h2>					
+      	    <h2><a href="admin.php">Admin Settings</a></h2>					
             </div>
 			
 			<?php
-			include_once('settingsForm.html');
+			include_once('adminForm.html');
 			?>
 
         <!-- /main -->

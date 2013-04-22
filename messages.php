@@ -10,11 +10,18 @@ include_once "mysql.connect.php";
 //grab the current users name
 $currentUser = $_SESSION['currentUser'];
 
-//this variable will be used to decide the CSS inside the footer file
-$_SESSION['NAV'] = 'messages';
+if ($_SESSION['STATUS'] == "ADMIN"){
+			//since the result is equal to one, we know that the user is an admin
+			//setup to display the admin priviladges page
+			include_once('adminHeader.html');
+			$_SESSION['NAV'] = 'messages';
+		}
+	else{
+		//grab the session type to know which type of pages the user is able to get
+		$_SESSION['NAV'] = 'messages';
+		include_once('header.html');
+	}	
 
-//include the header file
-include('header.html');
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">
