@@ -3,17 +3,15 @@ session_start();
 
 if(isset($_POST['submit']))
 {
-include_once "mysql.connect.php";
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
+	if($_POST['message'] != NULL)
+	{
+		include_once "mysql.connect.php";
 
-//mysql_select_db("chat", $con);
 		$message=$_POST['message'];
-		$sender=$_POST['sender'];
+		$sender=$_SESSION['currentUser'];
 		$sql ="INSERT INTO message(message, sender)VALUES('$message', '$sender')";
 		$result = mysqli_query($con, $sql);
+	}
 }
 
 ?>
@@ -22,11 +20,14 @@ if (!$con)
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Simple Chat</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <script language="javascript" src="jquery-1.2.6.min.js"></script>
 <script language="javascript" src="jquery.timers-1.0.0.js"></script>
 <script type="text/javascript">
 
+
 $(document).ready(function(){
+   //$(document).attr({ scrollTop: $(document).attr("scrollHeight") });
    var j = jQuery.noConflict();
 	j(document).ready(function()
 	{
@@ -43,11 +44,13 @@ $(document).ready(function(){
 	});
 	j(document).ready(function() {
 			j('#post_button').click(function() {
+				$sender = $('#post_sender').val();
 				$text = $('#post_text').val();
 				j.ajax({
 					type: "POST",
 					cache: false,
 					url: "save.php",
+					//data: "sender"+$sender+"text="+$text,
 					data: "text="+$text,
 					success: function(data) {
 						alert('data has been stored to database');
@@ -61,29 +64,23 @@ $(document).ready(function(){
 
 </head>
 <body>
-<form method="POST" name="" action="">
+<form method="POST" name="" action="" class="scrollbar">
 <div class="refresh">
 <?php
 include_once "mysql.connect.php";
-if (!$con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
 
-//mysql_select_db("chat", $con);
-
-$sql = "SELECT * FROM message ORDER BY id DESC";
+$sql = "SELECT * FROM message ORDER BY id DESC LIMIT 10";
 $result = mysqli_query($con,$sql);
 
 while($row = mysqli_fetch_array($result))
   {
-  echo '<p>'.'<span>'.$row['sender'].'</span>'. '&nbsp;&nbsp;' . $row['message'].'</p>';
+  echo '<p>'.'<span class="chat_sender">'.$row['sender'].':</span>'. '&nbsp;&nbsp;&nbsp;' . $row['message'].'</p>';
   }
 
-//mysql_close($con);
 ?>
 
 </div>
+<br>
 <input name="message" type="text" id="textb"/>
 <input name="submit" type="submit" value="Chat" id="post_button" />
 </form>

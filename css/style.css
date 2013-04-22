@@ -32,6 +32,18 @@
 a.hiddenanchor{
 	display: none;
 }
+
+.highlight {
+ scrollbar-face-color: #99ccff;
+ scrollbar-shadow-color: #ccccff;
+ scrollbar-highlight-color: #ccccff;
+ scrollbar-3dlight-color: #99ccff;
+ scrollbar-darkshadow-color: #ccccff;
+ scrollbar-track-color: #ccccff;
+ scrollbar-arrow-color: #000033;
+ overflow: scroll;
+}
+
 /** The wrapper that will contain our two forms **/
 #wrapper{
 	width: 60%;

@@ -21,6 +21,7 @@ include_once "mysql.connect.php";
 			<div class="main-content">
 
       	    <h2><a href="chat.php">Chat</a></h2>
+      	    <p>The chat for a group or just a public chatroom?</p>
 			<?php include('chatWindow.php'); ?>			
             </div>
 

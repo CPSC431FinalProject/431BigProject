@@ -9,8 +9,7 @@ $_SESSION['NAV'] = 'home';
 include('header.html');
 $time = date('G:ia');
 
-//connection to the database
-//$con=mysqli_connect("ecsmysql","cs431s24","meifithi", "cs431s24");
+//Connect to the database
 include_once "mysql.connect.php";
 ?>
 

@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include_once "mysql.connect.php";
 if (!$con)
   {
@@ -15,4 +15,4 @@ while($row = mysqli_fetch_array($result))
   echo '<p>'.'<span>'.$row['sender'].'</span>'. '&nbsp;&nbsp;' . $row['message'].'</p>';
   }
 
-?>
+?> -->
