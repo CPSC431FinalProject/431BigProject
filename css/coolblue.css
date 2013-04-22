@@ -1305,3 +1305,45 @@ input.placeholder-text, textarea.placeholder-text  {
 #post-details-time-stamp {
 	text-align: right;
 }
+.refresh {
+    border: 1px solid #3366FF;
+	border-left: 4px solid #3366FF;
+    color: green;
+    font-family: tahoma;
+    font-size: 12px;
+    height: 225px;
+    overflow: auto;
+    width: 400px;
+	padding:10px;
+	background-color:#FFFFFF;
+}
+#post_button{
+	border: 1px solid #3366FF;
+	background-color:#3366FF;
+	width: 100px;
+	color:#FFFFFF;
+	font-weight: bold;
+	margin-left: -105px; padding-top: 4px; padding-bottom: 4px;
+	cursor:pointer;
+}
+#textb{
+	border: 1px solid #3366FF;
+	border-left: 4px solid #3366FF;
+	width: 320px;
+	margin-top: 10px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; width: 415px;
+}
+#texta{
+	border: 1px solid #3366FF;
+	border-left: 4px solid #3366FF;
+	width: 410px;
+	margin-bottom: 10px;
+	padding:5px;
+}
+p{
+border-top: 1px solid #EEEEEE;
+margin-top: 0px; margin-bottom: 5px; padding-top: 5px;
+}
+span{
+	font-weight: bold;
+	color: #3B5998;
+}
