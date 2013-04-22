@@ -55,10 +55,10 @@ if(!empty($_POST['oldPassword']) && !empty($_POST['newPassword']) && !empty($_PO
 
 		// this is where we check to see if the user exists in the database
 		//create sql string to retrieve the string from the database table "users"
-		$sql = "SELECT * FROM `users` WHERE userName = '$currentUser' AND password = '$oldPassowrd'";
+		$sql = "SELECT * FROM `users` WHERE userName = '$currentUser'";
 		$result = mysqli_query($con,$sql);
-		
-		if (mysqli_num_rows($result) == 1){
+		$rows = mysqli_num_rows($result); 
+		if ($rows['password'] == $oldPassword){
 			//since we know that the user has the correct old password, we can now change the password
 			$newPassword = $_POST['newPassword'];
 			$passwordConfirm = $_POST['passwordConfirm'];
