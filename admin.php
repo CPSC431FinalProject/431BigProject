@@ -40,44 +40,29 @@ include_once "mysql.connect.php";
 <?php
 include_once('footer.html');
 
-/* Code to change the password of a user */
+/* Code to add a new club*/
 
-if(!empty($_POST['oldPassword']) && !empty($_POST['newPassword']) && !empty($_POST['passwordConfirm']))
+if(!empty($_POST['newClub']) && !empty($_POST['clubDescription']))
 	{
-		//grab the old password
-		$oldPassword = $_POST['oldPassword'];
+		//grab the new club name
+		$newClub = $_POST['newClub'];
 		
-		//hash the old password to see if it matches the hashed version in the database table
-		$oldPassword = md5($oldPassword);
+		$picture = '';
+		
+		//grab the clubs description
+		$description = $_POST['clubDescription'];
+	
 
-		// this is where we check to see if the user exists in the database
-		//create sql string to retrieve the string from the database table "users"
-		$sql = "SELECT * FROM `users` WHERE userName = '$currentUser' AND password = '$oldPassowrd'";
-		$result = mysqli_query($con,$sql);
-		
-		if (mysqli_num_rows($result) == 1){
-			//since we know that the user has the correct old password, we can now change the password
-			$newPassword = $_POST['newPassword'];
-			$passwordConfirm = $_POST['passwordConfirm'];
-			
-			//check to see if the two passwords, match
-			if( $newPassword == $passwordConfirm)
+		//prepare the mysql query to insert into clubs table
+			$sql="INSERT INTO clubs (clubName, picture, profile)
+			VALUES
+			('$newClub','$picture', '$description')";
+			if(!mysqli_query($con,$sql))
 				{
-					//insert the new password into the database
-					$newPassword = md5($newPassword);
-					$sql="UPDATE users  SET password='$newPassword' WHERE `userName`='$currentUser'";
-					$result = mysqli_query($con,$sql);
-					
-					$return = "<html><body onload=\"alert('Submitted');\"><p>Submission successful.</p></body></html>";
+					die('Error: ' . mysqli_error($con));
 				}
-			else{
-					$return = "<html><body onload=\"alert('Submitted');\"><p>Passwords Don't match</p></body></html>";
-			}
-		
-		}else{
-			 $return ="<html><body onload=\"alert('Submitted');\"><p>Incorrect Passw</p></body></html>";
-		}
-		print $return;
+				$return = "<html><body onload=\"alert('Submitted');\"><p>New Club Added.</p></body></html>";
+				print($return);
 		//printf("Select returned %d rows.\n", mysqli_num_rows($result));
 	}
 ?>
