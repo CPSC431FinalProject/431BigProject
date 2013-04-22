@@ -1,9 +1,9 @@
 We can use this to try and keep track on what is still needed, and who is currently working on what.
 
 1. Administrator:
-	a. Create new clubs									??
-	b. Appoint club administrators						??
-	c. Ban users										??
+	a. Create new clubs									//Form is up, but not hooked up
+	b. Appoint club administrators						//Form is up, but not hooked up
+	c. Ban users										//Form is up, but not hooked up
 2. Club administrators:
 	a. Edit club profile								??
 	b. Create forums									??
