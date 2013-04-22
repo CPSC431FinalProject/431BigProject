@@ -44,8 +44,8 @@ $result = mysqli_query($con,$sql);
 						//populate clubs from the database
 						while($row = mysqli_fetch_array($result)) : ?>
 						<li>
-							<div class='post-title'>Club: <?php echo $row['clubName']; ?></a></div>
-							<div class='post-title'>Description: <?php echo $row['profile']; ?></a></div>
+							<div class='post-title'><?php echo $row['clubName']; ?></a></div>
+							<div class='post-details'><?php echo $row['profile']; ?></a></div>
 						</li>
 				
 						

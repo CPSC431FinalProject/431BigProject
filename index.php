@@ -38,7 +38,7 @@
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                                    <input id="userLog" name="userLog" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                    <input id="userLog" name="userLog" required="required" type="text" placeholder="myusername"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Your password </label>
