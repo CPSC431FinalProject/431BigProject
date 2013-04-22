@@ -18,10 +18,16 @@ if ($_SESSION['STATUS'] == "ADMIN"){
 			//query the database to get the items inside mailbox table to populate the users messages
 			//pass the number of messages in the inbox into the header, so that the navigation bar will dispay the # of messages in the inbox
 			$sql = "SELECT * FROM mailbox WHERE receiver = '$currentUser'";
-			//$result = mysqli_stmt_num_rows($sql);
-			
+			if ($stmt = mysqli_prepare($con, $sql)) {
+
+			/* execute query */
+			mysqli_stmt_execute($stmt);
+
+			/* store result */
+			mysqli_stmt_store_result($stmt);
+			}		
 			//pass the number of messages into the header through a session variable
-			$_SESSION['numMessages']= $result;
+			$_SESSION['numMessages']= $stmt;
 			include_once('adminHeader.html');
 		}
 	else{
