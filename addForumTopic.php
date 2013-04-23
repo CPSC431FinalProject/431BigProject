@@ -57,14 +57,11 @@ include('header.html');
 
         <!-- /main -->
         </div>
-        
+        <?php
+		include('footer.html');
+		?>
     <!-- /content -->
 	</div>
 	
 <!-- /content-wrap -->
 </div>
-
-
-<?php
-include('footer.html');
-?>
