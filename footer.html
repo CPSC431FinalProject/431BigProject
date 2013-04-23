@@ -1,0 +1,55 @@
+<?php
+//query the database to get the items inside mailbox table to populate the users messages
+$sql = "SELECT * FROM activeUsers";
+$result = mysqli_query($con,$sql);
+?>
+        <!-- sidebar -->
+		<div id="sidebar">
+
+      	    <div class="about-me">
+
+         	    <h3>Users Online</h3>
+
+				<?php
+						//populate messages from the database
+						while($row = mysqli_fetch_array($result)) : ?>
+                <p>
+		        <a href="chat.php"><img src="images/gravatar.jpg" width="42" height="42" alt="firefox" class="align-left" /></a>
+                <?php echo $row['userName']; ?>
+				<br>
+				<br>
+			    </p>
+				
+				<?php endwhile;?>
+            </div>
+			
+        <!-- /sidebar -->
+		</div>
+
+    <!-- content -->
+	</div>
+
+<!-- /content-out -->
+</div>
+		
+<!-- extra -->
+<div id="extra-wrap"><div id="extra" class="clearfix">
+<!-- /extra -->
+</div></div>
+
+<!-- footer -->
+<footer>
+
+	<p class="footer-left">
+		Design by Ivan Linan, Pernilla Andersson, Kenny Ascheri
+	</p>
+
+	<p class="footer-right">
+	   	<a href="http://wang.ecs.fullerton.edu/cpsc431/">CPSC 431 Database and Web Applications</a>
+    </p>
+
+<!-- /footer -->
+</footer>
+
+</body>
+</html>
