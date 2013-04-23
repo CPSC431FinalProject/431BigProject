@@ -10,11 +10,17 @@ include_once('mysql.connect.php');
 
 //Get the current users name
 $currentUser = $_SESSION['currentUser'];
-
-$_SESSION['NAV'] = 'forum';
-
-//include the header file
-include('header.html');
+if ($_SESSION['STATUS'] == 'ADMIN'){
+			//since the result is equal to one, we know that the user is an admin
+			//setup to display the admin priviladges page
+			$_SESSION['NAV'] = 'forum';
+			include_once('adminHeader.html');
+		}
+	else{
+		//grab the session type to know which type of pages the user is able to get
+		$_SESSION['NAV'] = 'forum';
+		include_once('header.html');
+	}	
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">
