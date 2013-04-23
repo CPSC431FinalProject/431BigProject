@@ -6,7 +6,6 @@ if(!isset($_SESSION['currentUser'])){
 }
 
 //Connection to the database
-//$con=mysqli_connect("localhost","kascheri","mysql","BigProject") or die("Error connecting");
 include_once('mysql.connect.php');
 
 //Get the current users name

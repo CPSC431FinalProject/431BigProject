@@ -6,7 +6,6 @@ if(!isset($_SESSION['currentUser'])){
 }
 
 //Connection to the database
-//$con=mysqli_connect("localhost","kascheri","mysql","BigProject");
 include_once('mysql.connect.php');
 
 //Get the current users name
@@ -37,14 +36,14 @@ include('header.html');
 			<?php
 			
 			//Find highest answer number.
-			$sql = "SELECT MAX(id) AS MaxID FROM $tblName WHERE ThreadID = '$id'";
+			$sql = "SELECT MAX(id) AS MaxID FROM $tblName WHERE ThreadNo = '$id'";
 			$result = mysqli_query($con, $sql);
 			$rows = mysqli_fetch_array($result);
 			
 			//add 1 to highest answer number and set it to "$MaxID". 
 			//If not set, set it to 1
 			
-			if($rows)
+			if($result)
 			{
 				$MaxID = $rows['id']+1;
 			}
@@ -60,7 +59,7 @@ include('header.html');
 			$datetime = date("d/m/y H:i:s"); //create date and time
 			
 			//Insert post
-			$sql2 = "INSERT INTO $tblName(Username, Text, DateTime, ThreadID)VALUES('$aName','$aAnswer','$datetime','$id')";
+			$sql2 = "INSERT INTO $tblName(Username, Text, DateTime, ThreadNo)VALUES('$aName','$aAnswer','$datetime','$id')";
 			$result2 = mysqli_query($con,$sql2);
 			
 			if($result2)
@@ -70,7 +69,7 @@ include('header.html');
 				
 				//If added new answer, add value + 1 in reply column
 				$tblName2 = "Thread";
-				$sql3 = "UPDATE $tblName2 SET Reply='$MaxID' WHERE id = '$id'";
+				$sql3 = "UPDATE $tblName2 SET Reply = '$MaxID' WHERE id = '$id'";
 				$result3 = mysqli_query($con,$sql3);
 			}
 			else

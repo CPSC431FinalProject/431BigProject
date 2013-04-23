@@ -6,7 +6,6 @@ if(!isset($_SESSION['currentUser'])){
 }
 
 //Connection to the database
-//$con=mysqli_connect("localhost","kascheri","mysql","BigProject");
 include_once('mysql.connect.php');
 
 //Get the current users name
@@ -41,8 +40,8 @@ include('header.html');
 				<div class="newTopicForm">Create New Topic
 					<div id="form1">
 						<form id="form1" name="form1" method="post" action="addForumTopic.php">
-							<input name="topic" type="text" id="topic" size="50" />
-							<textarea name="detail" cols="50" rows="3" id="detail"></textarea>
+							Title:<br /><input name="topic" type="text" id="topic" size="50" /><br />
+							Description:<br /><textarea name="detail" cols="50" rows="2" id="detail"></textarea>
 							<input type="submit" name="submit" value="Submit" />
 							<input type="reset" name="submit2" value="Reset" />
 					</div>

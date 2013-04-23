@@ -6,7 +6,6 @@ if(!isset($_SESSION['currentUser'])){
 }
 
 //Connection to the database
-//$con=mysqli_connect("localhost","kascheri","mysql","BigProject");
 include_once('mysql.connect.php');
 
 //Get the current users name
@@ -31,6 +30,7 @@ include('header.html');
       	    <h2><a href="forum.php">Forum</a></h2>
 			
 			<?php
+			//Store variables retrieved from POST
 			$title = $_POST['topic'];
 			$detail = $_POST['detail'];
 			$tblName = "Thread";
@@ -57,6 +57,14 @@ include('header.html');
 
         <!-- /main -->
         </div>
+        
+    <!-- /content -->
+	</div>
+	
+<!-- /content-wrap -->
+</div>
+
+
 <?php
 include('footer.html');
 ?>
