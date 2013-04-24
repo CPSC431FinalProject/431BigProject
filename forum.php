@@ -56,7 +56,7 @@ include('decideStatus.php');
 			//Exit while loop 
 			} 
 			
-			if(SESSION['STATUS'] == "clubAdmin")
+			if($_SESSION['STATUS'] == "clubAdmin")
 			{ ?>
 				
 				<tr>
