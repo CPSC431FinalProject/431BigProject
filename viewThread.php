@@ -53,21 +53,15 @@ include('decideStatus.php');
 			{ ?>
 			
 				<tr>
-					
-					<td><table border="1">
-					<tr>
-						<td><?php echo $rows['Text']; ?></td>
-					<tr>
-						<td><strong>By</strong></td>
-						<td>:</td>
-						<td><?php echo $rows['Username']; ?></td>
-					</tr>
-					<tr>
-						<td><strong>Date/Time</strong></td>
-						<td>:</td>
-						<td><?php echo $rows['DateTime']; ?></td>
-					</tr>
-					</table></td>
+					<td>
+						<?php echo $rows['Text']; ?>
+					</td>
+					<td>
+						<strong>By</strong>:<?php echo $rows['Username']; ?>
+					</td>
+					<td>
+						<strong>Date/Time</strong>:<?php echo $rows['DateTime']; ?>
+					</td>
 				</tr>
 				</table>
 			

@@ -54,7 +54,7 @@ include('decideStatus.php');
 			$aName = $currentUser;
 			$aAnswer = $_POST['aAnswer'];
 			
-			$datetime = date("d/m/y H:i:s"); //create date and time
+			$datetime = date("m/d/y h:i:s a"); //create date and time
 			
 			//Insert post
 			$sql2 = "INSERT INTO $tblName(Username, Text, DateTime, ThreadNo)VALUES('$aName','$aAnswer','$datetime','$id')";
