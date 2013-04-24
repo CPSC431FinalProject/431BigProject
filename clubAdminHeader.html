@@ -1,0 +1,128 @@
+<?php
+$NAV = $_SESSION['NAV'];
+$numMessages = $_SESSION['numMessages'];
+include('recordActivity.php');
+?>
+<!DOCTYPE html>
+<!--[if IE 7 ]>    <html class="ie7 oldie"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 oldie"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+
+<head>
+
+	<link rel="shortcut icon" href="/favicon.ico" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS 431 Final Project</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/coolblue.css" />
+
+    <!--[if lt IE 9]>
+	    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.6.1.min.js"><\/script>')</script>
+
+    <script src="js/scrollToTop.js"></script>
+
+</head>
+
+<body id="top">
+
+<!--header -->
+<div id="header-wrap"><header>
+
+ 	<hgroup>
+        <h1><a href="home.php">Welcome</a></h1>
+    </hgroup>
+
+    <nav>
+		<ul>
+			<?php
+				if($NAV == 'home')
+				{
+					echo "<li id='current' ><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'messages')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li id='current'><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'settings')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li id='current'><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'chat')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li  id='current'><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'forum')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li  id='current'><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'clubs')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li id='current'><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+				if($NAV == 'clubAdmin')
+				{
+					echo "<li><a href='home.php'>Home</a><span></span></li>";
+					echo "<li><a href='messages.php'>Messages</a><span></span></li>";
+					echo "<li><a href='settings.php'>User Settings</a><span></span></li>";
+					echo "<li><a href='chat.php'>Chat</a><span></span></li>";
+					echo "<li><a href='forum.php'>Forum</a><span></span></li>";
+					echo "<li><a href='clubs.php'>Clubs</a><span></span></li>";
+					echo "<li  id='current'><a href='clubAdmin.php'>Club Admin</a><span></span></li>";
+				}
+			?>
+		</ul>
+	</nav>
+
+    <div class="logout">
+        <span><?php $currentUser = $_SESSION['currentUser']; echo $currentUser; ?></span> <a href="logout.php">Logout</a>
+    </div>
+
+
+<!--/header-->
+</header></div>
+	

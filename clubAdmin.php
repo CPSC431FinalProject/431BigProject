@@ -5,8 +5,16 @@ if(!isset($_SESSION['currentUser'])){
    header("Location:index.php");
 }
 $currentUser = $_SESSION['currentUser'];
-$_SESSION['NAV'] = 'chat';
-include('decideStatus.php');
+
+$_SESSION['NAV'] = 'clubAdmin';
+
+if($_SESSION['STATUS'] == "clubAdmin")
+	{
+		include('clubAdminHeader.html');
+	}
+	else{
+		header("Location:home.php");
+	}
 //connection to the database
 include_once "mysql.connect.php";
 ?>
@@ -20,13 +28,15 @@ include_once "mysql.connect.php";
         <div id="main">
 			<div class="main-content">
 
-      	    <h2><a href="chat.php">Chat</a></h2>
-      	    <p>The chat for a group or just a public chatroom?</p>
-			<?php include('chatWindow.php'); ?>			
+      	    <h2><a href="clubAdmin.php">Club Settings</a></h2>					
             </div>
+			
+			<?php
+			include_once('clubAdminForm.html');
+			?>
 
         <!-- /main -->
         </div>
 <?php
-include('footer.html');
+include_once('footer.html');
 ?>

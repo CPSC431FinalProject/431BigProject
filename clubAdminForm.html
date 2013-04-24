@@ -1,0 +1,19 @@
+<div id="contact-form" class="clearfix">  
+    <form method="post" action="admin.php">  
+		<label for="appCLubMem">Approve Club Member:<span class="required"></span></label>  
+        <input type="text" id="appCLubMem" name="appCLubMem" value="" placeholder="New Club Member Name" autofocus="autofocus" />
+	
+        <label for="remClubMem">Remove Club Member: <span class="required"></span></label>  
+        <input type="text" id="remClubMem" name="remClubMem" value="" placeholder="Remove a current club member." autofocus="autofocus" />  
+          
+        <label for="banUser">Ban User: <span class="required"></span></label>  
+        <input type="banUser" id="banUser" name="banUser" value="" placeholder="User Name to Ban"  /> 
+
+		 <label for="clubDescription">Edit Club Profile: <span class="required"></span></label>  
+        <textarea id="clubDescription" name="clubDescription" placeholder="Change Description of Club Profile"  data-minlength="20"></textarea>  
+          
+
+        <span id="loading"></span>  
+        <input type="submit" value="Change" id="submit-button" />  
+    </form>  
+</div>  

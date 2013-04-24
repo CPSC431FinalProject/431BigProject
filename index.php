@@ -143,6 +143,7 @@
 								$passWord2 = $_POST['passwordsignup_confirm'];
 								$realName = $_POST['realName'];
 								$usernamesignup = $_POST['usernamesignup'];
+								$user = "USER";
 								
 								/* Used when trying to run a seperate register page.
 								$_SESSION['usernamesignup'] = $passWord;
@@ -156,8 +157,8 @@
 									}
 								else{
 									$passWord = md5($passWord);
-									$sql="INSERT INTO users (UserFullName, userName, password)
-										VALUES('$_POST[realName]','$_POST[usernamesignup]','$passWord')";
+									$sql="INSERT INTO users (UserFullName, userName, password, status)
+										VALUES('$_POST[realName]','$_POST[usernamesignup]','$passWord', '$user')";
 									if(!mysqli_query($con,$sql))
 									{
 										die('Error: ' . mysqli_error($con));

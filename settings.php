@@ -6,18 +6,8 @@ if(!isset($_SESSION['currentUser'])){
 }
 $currentUser = $_SESSION['currentUser'];
 
-if ($_SESSION['STATUS'] == 'ADMIN'){
-			//since the result is equal to one, we know that the user is an admin
-			//setup to display the admin priviladges page
-			$_SESSION['NAV'] = 'settings';
-			include_once('adminHeader.html');
-		}
-	else{
-		//grab the session type to know which type of pages the user is able to get
-		$_SESSION['NAV'] = 'settings';
-		include_once('header.html');
-	}	
-
+$_SESSION['NAV'] = 'settings';
+include('decideStatus.php');
 //connection to the database
 include_once "mysql.connect.php";
 ?>

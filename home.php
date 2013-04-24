@@ -9,29 +9,8 @@ include_once "mysql.connect.php";
 $currentUser = $_SESSION['currentUser'];
 
 $admin = "admin";
-//query the database to see if the user that just logged in has admin priviladges
-$sql = "SELECT * FROM users WHERE userName = '$currentUser'";
-		$result = mysqli_query($con,$sql);
-		$row = mysqli_fetch_array($result);
-if ($row['status'] == "admin"){
-			//since the result is equal to one, we know that the user is an admin
-			//setup to display the admin priviladges page
-			$_SESSION['NAV'] = 'home';
-			$_SESSION['STATUS'] = "ADMIN";
-			include('adminHeader.html');
-			$_SESSION['NAV'] = 'home';
-		}
-	else{
-		//grab the session type to know which type of pages the user is able to get
-		$_SESSION['NAV'] = 'home';
-		include('header.html');
-		$_SESSION['STATUS'] = 'USER';
-	}	
-		
-//grab the session type to know which type of pages the user is able to get
-//$_SESSION['NAV'] = 'home';
-//include('header.html');
-//$time = date('G:ia');
+$_SESSION['NAV'] = 'home';
+include('decideStatus.php');
 
 
 //Connect to the database
