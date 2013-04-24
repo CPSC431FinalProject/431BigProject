@@ -54,12 +54,20 @@ include('decideStatus.php');
 				</tr>
 			<?php
 			//Exit while loop 
-			} ?>
+			} 
+			
+			if(SESSION['STATUS'] == "clubAdmin")
+			{ ?>
 				
-			<tr>
-				<td></td>
-				<td><a href="createForumTopic.php"><strong>Create New Topic</strong></a></td>
-			</tr>
+				<tr>
+					<td></td>
+					<td><a href="createForumTopic.php"><strong>Create New Topic</strong></a></td>
+				</tr>
+			<?php
+			} // exit if statement to check for club admin
+			?>
+			
+			
 			</table>
 			</ul>
 			
