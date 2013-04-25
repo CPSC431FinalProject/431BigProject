@@ -38,7 +38,7 @@ include('decideStatus.php');
 			?>
 				<table border="1">
 				<tr>
-					<tr><th><h2><?php echo $rows['Title']; ?></h2></th></tr>
+					<tr><th><h2><center><?php echo $rows['Title']; ?></center></h2></th></tr>
 					<tr><th><p><?php echo $rows['Detail']; ?></p></th></tr>
 					<table border='0'>
 					<tr>
@@ -108,7 +108,9 @@ include('decideStatus.php');
 					<tr>
 						<td>&nbsp;</td>
 						<td><input name="id" type="hidden" value="<? echo $id; ?>"></td>
-						<td><input type="submit" name="Submit" value="Submit"> <input type="reset" name="Submit2" value="Reset"></td>
+						<td><input type="submit" name="Submit" value="Submit">
+							<input type="reset" name="Submit2" value="Reset">
+						</td>
 					</tr>
 					</table>
 				</td>

@@ -32,14 +32,13 @@ $result = mysqli_query($con,$sql);
 					<ul class="archive">
 					<?php
 						//populate clubs from the database
-						while($row = mysqli_fetch_array($result)) : ?>
-						<li>
-							<div class='post-title'><?php echo $row['clubName']; ?></a></div>
-							<div class='post-details'><?php echo $row['profile']; ?></a></div>
-						</li>
-				
-						
-					<?php endwhile;?>
+						while($row = mysqli_fetch_array($result)) : 
+							$clubname = $row['clubName'];
+							echo "<li>";
+							echo "<div class='post-title'><a href='clubProfile.php?id=".$clubname."'>".$clubname."</a></div>";
+							echo "<div class='post-details'>".$row['profile']."</div>";
+							echo "</li>";
+						endwhile;?>
 					</ul>					
             </div>
         <!-- /main -->
