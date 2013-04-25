@@ -34,16 +34,22 @@ include('decideStatus.php');
 			<?php
 			$sql = "SELECT * FROM $tblName WHERE id = '$id'";
 			$result = mysqli_query($con,$sql);
-			$rows = mysqli_fetch_array($result)
+			$rows = mysqli_fetch_array($result);
 			?>
 				<table border="1">
 				<tr>
-					<th><strong><?php echo $rows['Topic']; ?></strong></th>
-					<th><?php echo $rows['Detail']; ?></th>
-					<th><strong>By: </strong><?php echo $rows['Username'] ?></td>
-					<th><strong>DateTime: </strong><?php echo $rows['DateTime'] ?></td>
-		
+					<tr><th><h2><?php echo $rows['Title']; ?></h2></th></tr>
+					<tr><th><p><?php echo $rows['Detail']; ?></p></th></tr>
+					<table border='0'>
+					<tr>
+						<td></td>
+						<td><strong>By: </strong><?php echo $rows['Username']; ?></td>
+						<td><strong>Started On: </strong><?php echo $rows['DateTime']; ?></td>
+					</tr>
+					</table>
 				</tr>
+				</table>
+				<table border='1'>
 			<?php
 			
 			$tblName2 = "Post"; //Switch the table to query from
@@ -51,22 +57,24 @@ include('decideStatus.php');
 			$result2 = mysqli_query($con,$sql2);
 			while($rows = mysqli_fetch_array($result2))
 			{ ?>
-			
-				<tr>
+				<tr>					
 					<td>
 						<?php echo $rows['Text']; ?>
 					</td>
 					<td>
-						<strong>By</strong>:<?php echo $rows['Username']; ?>
+						By:<?php echo $rows['Username']; ?>
 					</td>
 					<td>
-						<strong>Date/Time</strong>:<?php echo $rows['DateTime']; ?>
+						Posted at:<?php echo $rows['DateTime']; ?>
 					</td>
 				</tr>
-				</table>
 			
 			<?php
-			}
+			} ?>
+			
+				</table>
+				
+			<?php
 			
 			$sql3 = "SELECT Views FROM $tblName WHERE id = '$id'";
 			$result3 = mysqli_query($con,$sql3);
@@ -93,7 +101,7 @@ include('decideStatus.php');
 				<td>
 					<table border="1">
 					<tr>
-						<td valign="top"><strong>Answer</strong></td>
+						<td valign="top"><strong>Say Something</strong></td>
 						<td valign="top">:</td>
 						<td><textarea name="aAnswer" cols="45" rows="3" id="aAnswer"></textarea></td>
 					</tr>
