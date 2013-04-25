@@ -13,7 +13,7 @@ $currentUser = $_SESSION['currentUser'];
 
 //Get the value of the id from the address bar
 $clubname = $_GET['id'];
-$_SESSION['NAV'] = 'forum';
+$_SESSION['NAV'] = 'clubs';
 include('decideStatus.php');
 ?>
 <!-- content-wrap -->
@@ -32,7 +32,7 @@ include('decideStatus.php');
 			$result = mysqli_query($con,$sql);
 			$rows = mysqli_fetch_array($result);		
 			
-      	    echo "<h2><a href='forum.php?id=".$rows['clubName']."'>".$rows['clubName']."</a></h2>";
+      	    echo "<h2><a href='clubs.php?id=".$rows['clubName']."'>".$rows['clubName']."</a></h2>";
       	    
       	    ?>
 				<div id="profile-wrapper">
