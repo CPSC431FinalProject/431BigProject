@@ -23,7 +23,7 @@ include_once "mysql.connect.php";
 
 /* Code to add a user to the clubMembers table */
 
-if(isset($_POST['clubname']) && isset($_POST['info']))
+if(!empty($_POST['clubname']) && !empty($_POST['info']))
 {
 	//get value of the drop down list
 	$value = $_POST['myDropDown'];			
@@ -44,11 +44,11 @@ if(isset($_POST['clubname']) && isset($_POST['info']))
 			$return = "<html><body onload=\"alert('Failed to add user to club.');\"></body></html>";
 		}
 	}
-	/*
+	
 	elseif($value == 'remClubMem')
 	{
 		//remove club member from clubMembers table
-		$sql = "DELETE * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
+		$sql = "DELETE FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
 		$result = mysqli_query($con,$sql);
 		
 		if($result)
@@ -61,7 +61,7 @@ if(isset($_POST['clubname']) && isset($_POST['info']))
 		}
 		
 	}
-
+	
 	elseif($value == 'clubDescription')
 	{
 		//Change club description
@@ -77,12 +77,6 @@ if(isset($_POST['clubname']) && isset($_POST['info']))
 			$return = "<html><body onload=\"alert('Failed to change description.');\"></body></html>";
 		}
 	}
-	print $return;
-	*/
-}
-else
-{
-	$return = "<html><body onload=\"alert('Failed to enter clubname.');\"></body></html>";
 	print $return;
 }
 ?>
