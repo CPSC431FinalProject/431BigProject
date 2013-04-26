@@ -56,12 +56,12 @@ include('decideStatus.php');
 			//Exit while loop 
 			} 
 			
-			if($_SESSION['STATUS'] == "clubAdmin" || $_SESSION['STATUS'] == "ADMIN")
+			if(isset($_SESSION['STATUS']))
 			{ ?>
 				
 				<tr>
 					<td></td>
-					<td><a href="createForumTopic.php"><strong>Create New Topic</strong></a></td>
+					<td><a href="createForumTopic.php"><strong>Create New Thread</strong></a></td>
 				</tr>
 			<?php
 			} // exit if statement to check for club admin

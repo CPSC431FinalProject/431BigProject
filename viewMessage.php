@@ -59,7 +59,7 @@ $id = $_GET['id'];
 							</div>
 							
 							<form action="delete.php" method="post" class="delete">
-							<input type="hidden" name="delete_id" id="delete_id" value="<?php echo $row['id']; ?>" />
+							<input type="hidden" name="delete_id" id="delete_id" value="<?php echo $rows['id']; ?>" />
 						    <input type="submit" class="delete" value="Delete" />
 						    
 						    
