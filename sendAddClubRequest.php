@@ -40,10 +40,10 @@ include('decideStatus.php');
 				
 			//create message information
 			$subject = "New club member request";
-			$msgText = "Hi ClubAdmin,<br /><br />&nbsp&nbsp&nbsp&nbsp$currentUser would like to join your club. Go to the Club Admin" .
+			$msgText = "Hi ClubAdmin,<br /><br />&nbsp&nbsp&nbsp&nbsp$currentUser would like to join $clubname club. Go to the Club Admin" .
 				" page to add the user to your club.<br /><br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp".
 				"Sincerely,<br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdmin";
-			$sender = $currentUser;
+			$sender = "SYSTEM";
 			$receiver = $row['userName'];
 			
 			//store the message in the mailbox
