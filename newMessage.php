@@ -54,7 +54,7 @@ if(!empty($_POST['userTo']) && !empty($_POST['message']) && !empty($_POST['subje
 
 		// this is where we check to see if the user exists in the database
 		//create sql string to retrieve the string from the database table "users"
-		$sql = "SELECT * FROM `users` WHERE userName = '$username'";
+		$sql = "SELECT * FROM users WHERE userName = '$username'";
 		$result = mysqli_query($con,$sql);
 		
 		if (mysqli_num_rows($result) == 1){
@@ -73,10 +73,10 @@ if(!empty($_POST['userTo']) && !empty($_POST['message']) && !empty($_POST['subje
 				{
 					die('Error: ' . mysqli_error($con));
 				}
-				$return = "<html><body onload=\"alert('Submitted');\"><p>Submission successful.</p></body></html>";
+				$return = "<html><body onload=\"alert('Submitted');\"></body></html>";
 				print($return);
 		}else{
-			 $return ="<html><body onload=\"alert('Submitted');\"><p>User does not exist.</p></body></html>";
+			 $return ="<html><body onload=\"alert('User does not exist.');\"></body></html>";
 		}
 		print $return;
 		//printf("Select returned %d rows.\n", mysqli_num_rows($result));

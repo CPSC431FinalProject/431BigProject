@@ -21,7 +21,7 @@ include('decideStatus.php');
     <div id="content" class="clearfix">
 <?php
 //query the database to get the items inside mailbox table to populate the users messages
-$sql = "SELECT * FROM mailbox WHERE receiver = '$currentUser'";
+$sql = "SELECT * FROM mailbox WHERE receiver = '$currentUser' ORDER BY id DESC";
 $result = mysqli_query($con,$sql);
 ?>
    	    <!-- main -->
@@ -38,15 +38,16 @@ $result = mysqli_query($con,$sql);
 					<ul class="archive">
 					<?php
 						//populate messages from the database
-						while($row = mysqli_fetch_array($result)) : ?>
-						<li>
-							<div class='post-title'>From: <?php echo $row['sender']; ?></a></div>
-							<div class='post-title'>Subject: <?php echo $row['subject']; ?></a></div>
+						while($row = mysqli_fetch_array($result)) : 
+							echo "<li>";
+							if($row['status'] == 'New') :
+								echo "<div class='post-title' style='background-color:yellow'>";
+							else :
+								echo "<div class='post-title'>";
+							endif; ?>
+								<a href="viewMessage.php?id=<?php echo $row['id']; ?>"><?php echo $row['subject']; ?></a></div>
+							<div class='post-details'>	From: <?php echo $row['sender']; ?></a></div>
 							<div id='post-details-time-stamp'><?php echo $row['dateTime'];?></div>
-					    <div class='post-details'><?php echo $row['msgText']; $_SESSION['delete_id'] = $row['id'];?>
-							<form action="delete.php" method="post" class="delete">
-							<input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>" />
-						    <input type="submit" class="delete" value="Delete" />
 						  </form>
 						</li>
 				
