@@ -36,21 +36,40 @@ include('decideStatus.php');
 			$result = mysqli_query($con,$sql);
 			$rows = mysqli_fetch_array($result);
 			?>
-				<table border="1">
-				<tr>
-					<tr><th><h2><center><?php echo $rows['Title']; ?></center></h2></th></tr>
-					<tr><th><p><?php echo $rows['Detail']; ?></p></th></tr>
-					<table border='0'>
-					<tr>
-						<td></td>
-						<td><strong>By: </strong><?php echo $rows['Username']; ?></td>
-						<td><strong>Started On: </strong><?php echo $rows['DateTime']; ?></td>
-					</tr>
-					</table>
-				</tr>
-				</table>
+				<ul class="archive">
+				<li>
+					<div class='post-title'><center><?php echo $rows['Title']; ?></center></div>
+					<div id='post-details-time-stamp'><?php echo $rows['DateTime']; ?></div>
+				</li>
+				</ul>
+				<ul class="archive">
+					<?php
+						$tblName2 = "Post"; //Switch the table to query from
+						$sql2 = "SELECT * FROM $tblName2 WHERE ThreadNo = '$id'";
+						$result2 = mysqli_query($con,$sql2);
+						//populate messages from the database
+						while($row = mysqli_fetch_array($result2)) : ?>
+						<li>
+							<div class='post-details'><?php echo $row['Text'];?></div>
+							<div id='post-details-time-stamp'><?php echo $row['DateTime']; echo "<br />By:".$row['Username']; ?></div>
+						</li>
+				
+						
+					<?php endwhile;?>
+				</ul>
+				
+				
+				
+				<?php /* ?>
+				
+				
+				
 				<table border='1'>
+				
+				
+				
 			<?php
+			
 			
 			$tblName2 = "Post"; //Switch the table to query from
 			$sql2 = "SELECT * FROM $tblName2 WHERE ThreadNo = '$id'";
@@ -70,11 +89,15 @@ include('decideStatus.php');
 				</tr>
 			
 			<?php
-			} ?>
+			} 
+			
+			
+			
+			?>
 			
 				</table>
 				
-			<?php
+			<?php   */
 			
 			$sql3 = "SELECT Views FROM $tblName WHERE id = '$id'";
 			$result3 = mysqli_query($con,$sql3);
