@@ -47,8 +47,7 @@ include('decideStatus.php');
 						</p>
 					</div>
 					<div id="button">
-						<form name="form1" method="post" action="addClubMember.php">
-							<input name="username" type="hidden" value="<?php echo $username; ?>">
+						<form name="form1" method="post" action="sendAddClubRequest.php">
 							<input name="clubName" type="hidden" value="<?php echo $clubname; ?>">
 							<input type="submit" name="Submit" value="Join the Club!">
 						</form>
