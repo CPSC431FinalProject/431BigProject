@@ -33,10 +33,10 @@ include('decideStatus.php');
 			$detail = $_POST['detail'];
 			$tblName = "Thread";
 			
-			$datetime=date("d/m/y h:i:s");
+			$today = date("F j, Y, g:i a");
 			
 			$sql = "INSERT INTO $tblName(Username,Title,Detail,DateTime)" . 
-				"VALUES('$currentUser','$title','$detail',NOW())";
+				"VALUES('$currentUser','$title','$detail','$today')";
 			$result = mysqli_query($con,$sql);
 			
 			if($result) 
