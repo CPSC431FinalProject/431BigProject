@@ -48,12 +48,15 @@ include('decideStatus.php');
 			
 			//store the message in the mailbox
 			$tblName2 = "mailbox";
+			
+			$today = date("F j, Y, g:i a"); 
+			
 			//so that "from" field won't be empty, we should make it be from "SYSTEM"
 			$from = "SYSTEM";
 			$sql2 = "INSERT INTO $tblName2 (subject,msgText,sender,receiver,status,dateTime)
 				VALUES
-				('$subject','$msgText','$from','$receiver','New',NOW())";
-			$result2 = @mysqli_query($con, $sql2);
+				('$subject','$msgText','$sender','$receiver','New','$today')";
+			$result2 = mysqli_query($con, $sql2);
 			$rows = mysqli_fetch_array($result2);
 			
 			if($result2)
