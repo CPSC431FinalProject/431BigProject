@@ -29,7 +29,7 @@ $result = mysqli_query($con,$sql);
 
             <div class="main-content">
 
-      	    <h2><a href="messages.php">Messages</a><div class='post-details'></h2>
+      	    <h2><a href="messages.php">Inbox</a><div class='post-details'></h2>
 				<div class="navigation clearfix">
 						<div><a href="newMessage.php" >New Message</a></div>
 				</div>

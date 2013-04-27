@@ -33,7 +33,7 @@ if ($_SESSION['STATUS'] == "ADMIN"){
 
             <div class="main-content">
 
-      	    <h2><a href="messages.php">New Message</a></h2>
+      	    <h2><a href="messages.php">Inbox</a></h2>
 			<?php include('messageForm.html'); ?>
             </div>
         <!-- /main -->

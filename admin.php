@@ -71,7 +71,7 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 	elseif($value == 'clubDescription')
 	{
 		//Change club description
-		$sql = "INSERT INTO clubs (clubName,picture,profile) VALUES('".$_POST['clubname']."','/images/".$_POST['clubname'].".jpg','".$_POST['info']."')";
+		$sql = "INSERT INTO clubs (clubName,picture,profile) VALUES('".$_POST['clubname']."','images/".$_POST['clubname'].".jpg','".$_POST['info']."')";
 		$result = mysqli_query($con,$sql);
 		
 		if($result)

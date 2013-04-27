@@ -32,7 +32,7 @@ include('decideStatus.php');
 			$result = mysqli_query($con,$sql);
 			$rows = mysqli_fetch_array($result);		
 			
-      	    echo "<h2><a href='clubs.php?id=".$rows['clubName']."'>".$rows['clubName']."</a></h2>";
+      	    echo "<h2><a href='clubProfile.php?id=".$rows['clubName']."'>".$rows['clubName']."</a></h2>";
       	    
       	    ?>
 				<div id="profile-wrapper">
