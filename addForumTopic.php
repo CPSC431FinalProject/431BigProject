@@ -31,18 +31,19 @@ include('decideStatus.php');
 			//Store variables retrieved from POST
 			$title = $_POST['topic'];
 			$detail = $_POST['detail'];
+			$clubname = $_POST['clubname'];
 			$tblName = "Thread";
 			
 			$today = date("F j, Y, g:i a");
 			
-			$sql = "INSERT INTO $tblName(Username,Title,Detail,DateTime)" . 
-				"VALUES('$currentUser','$title','$detail','$today')";
+			$sql = "INSERT INTO $tblName(Username,Title,Detail,DateTime,clubName)" . 
+				"VALUES('$currentUser','$title','$detail','$today','$clubname')";
 			$result = mysqli_query($con,$sql);
 			
 			if($result) 
 			{
 				echo "Successful\t";
-				echo "<a href=forum.php>View your topic</a>";
+				echo "<a href='forum.php?id=".$clubname."'>View your topic</a>";
 			}
 			else
 			{

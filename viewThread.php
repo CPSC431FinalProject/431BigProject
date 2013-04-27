@@ -13,8 +13,9 @@ $currentUser = $_SESSION['currentUser'];
 
 $tblName="Thread";
 
-//Get the value of the id from the address bar
+//Get the values from the url
 $id = $_GET['id'];
+$clubname = $_GET['club'];
 $_SESSION['NAV'] = 'forum';
 include('decideStatus.php');
 ?>
@@ -29,7 +30,7 @@ include('decideStatus.php');
 			<div class="main-content">
 			
 			
-      	    <h2><a href="forum.php">Forum</a></h2>
+      	    <h2><a href="forum.php?id=<?php echo $clubname; ?>"><?php echo $clubname ?> Forum</a></h2>
 			
 			<?php
 			$sql = "SELECT * FROM $tblName WHERE id = '$id'";
@@ -38,7 +39,13 @@ include('decideStatus.php');
 			?>
 				<ul class="archive">
 				<li>
-					<div class='post-title'><center><?php echo $rows['Title']; ?></center></div>
+					<div class='post-title'>
+						<center><?php echo $rows['Title']; ?></center><br />
+					</div>
+					<div class='post-details'>
+						Details:<br />
+						<center><?php echo $rows['Detail']; ?></center>
+					</div>
 					<div id='post-details-time-stamp'><?php echo $rows['DateTime']; ?></div>
 				</li>
 				</ul>

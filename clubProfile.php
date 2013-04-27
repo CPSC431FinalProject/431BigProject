@@ -46,6 +46,17 @@ include('decideStatus.php');
 							<?php echo $rows['profile']; ?>
 						</p>
 					</div>
+					
+					<div>
+						<p>  </p>
+					</div>
+					
+					<div id="forumLink">
+						<p>
+							<h2><a href='forum.php?id=<?php echo $clubname; ?>'>Check out our forum!</a></h2>
+						</p>
+					</div>
+					
 					<div id="button">
 						<form name="form1" method="post" action="sendAddClubRequest.php">
 							<input name="clubName" type="hidden" value="<?php echo $clubname; ?>">
