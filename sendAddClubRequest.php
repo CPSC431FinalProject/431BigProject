@@ -53,7 +53,7 @@ include('decideStatus.php');
 				VALUES
 				('$subject','$msgText','$from','$receiver','New',NOW())";
 			$result2 = @mysqli_query($con, $sql2);
-			$rows = mysqli_fetch_array($result2);
+			$rows = @mysqli_fetch_array($result2);
 			
 			if($result2)
 			{
