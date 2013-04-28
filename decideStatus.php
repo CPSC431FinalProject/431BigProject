@@ -28,7 +28,7 @@ if(!isset($_SESSION['STATUS'])){
 				$_SESSION['NAV'] = 'home';
 			}
 	//the user was not a club admin, and not a full admin, so must be a regular user
-	if ($row['status'] == ""){
+	else if ($row['status'] == ""){
 			//grab the session type to know which type of pages the user is able to get
 			include('header.html');
 			$_SESSION['STATUS'] = 'USER';
