@@ -11,7 +11,7 @@ include('decideStatus.php');
 //connection to the database
 include_once "mysql.connect.php";
 
-$id = $_POST['id'];
+$id = $_GET['id'];
 ?>
 <!-- content-wrap -->
 <div id="content-wrap">
@@ -28,8 +28,19 @@ $id = $_POST['id'];
       	    <div id="">
       	    	<div id="">
 				<?php 
-					include('chatWindow.php');
+					include("chatWindow.php");
 				?>
+				
+				<table>
+				<tr>
+					<table>
+					<tr>
+						<form id="close" method="post" action="closeChatroom.php">
+							<input type="hidden" value="<?php echo $id; ?>" name="id" />
+							<input type="submit" name="submit" value="Close Chatroom" />
+						</form>
+					</tr></table>
+				</tr></table>
 					
 				</div>
 			</div>					

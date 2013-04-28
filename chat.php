@@ -34,7 +34,7 @@ include_once "mysql.connect.php";
 						echo "<div id=''>";
 						while($row = mysqli_fetch_array($result)) : ?>
 							<div id="">
-							<a href="chatroom.php?id=$row['id']">
+							<a href="chatroom.php?id=<?php echo $row['CRNo']; ?>">
 								<?php echo $row['title']; ?>&nbsp&nbsp&nbsp&nbsp&nbspStarted By: <?php echo $row['userName']; ?>
 							</a>
 							</div>
