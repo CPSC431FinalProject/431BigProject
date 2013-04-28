@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 
 		$message=$_POST['message'];
 		$sender=$_SESSION['currentUser'];
-		$sql ="INSERT INTO message(message, sender)VALUES('$message', '$sender')";
+		$sql ="INSERT INTO message(message, sender, CRNo)VALUES('$message', '$sender', '$id')";
 		$result = mysqli_query($con, $sql);
 	}
 }
@@ -69,7 +69,7 @@ $(document).ready(function(){
 <?php
 include_once "mysql.connect.php";
 
-$sql = "SELECT * FROM message ORDER BY id DESC LIMIT 10";
+$sql = "SELECT * FROM message WHERE CRNo = $id ORDER BY id DESC LIMIT 10";
 $result = mysqli_query($con,$sql);
 
 while($row = mysqli_fetch_array($result))
@@ -81,8 +81,8 @@ while($row = mysqli_fetch_array($result))
 
 </div>
 <br>
-<input name="message" type="text" id="textb"/>
-<input name="submit" type="submit" value="Chat" id="post_button" />
+<input name="message" type="text" id="textb" autofocus="autofocus" />
+<input name="submit" type="submit" value="Chat" id="post_button" style="height:35px />
 </form>
 </body>
 </html>

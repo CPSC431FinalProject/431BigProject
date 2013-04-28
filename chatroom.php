@@ -24,7 +24,6 @@ $id = $_GET['id'];
 			<div class="main-content">
 
       	    <h2><a href="chat.php">Chatrooms</a></h2>
-      	    <br /><br />
       	    <div id="">
       	    	<div id="">
 				<?php 
