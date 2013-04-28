@@ -30,7 +30,7 @@ include('decideStatus.php');
 			<?php
 			
 			
-      	    echo "<h2><a href='forum.php?id=".$clubname."'>".$clubname."</a></h2>";
+      	    echo "<h2><a href='forum.php?id=".$clubname."'>".$clubname." Forum</a></h2>";
 			
 			//find the username of the clubAdmin assigned to the specific club in the databse
 			$tblName = "users";
@@ -57,8 +57,6 @@ include('decideStatus.php');
 				VALUES
 				('$subject','$msgText','$sender','$receiver','New','$today')";
 			$result2 = @mysqli_query($con, $sql2);
-			$rows = @mysqli_fetch_array($result2);	
-			$result2 = mysqli_query($con, $sql2);
 			$rows = @mysqli_fetch_array($result2);
 			if($result2)
 			{
