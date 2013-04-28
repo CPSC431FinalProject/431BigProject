@@ -6,7 +6,7 @@ We can use this to try and keep track on what is still needed, and who is curren
 	c. Ban users										//Form is up, but not hooked up
 2. Club administrators:
 	a. Edit club profile								//Done
-	b. Create forums									//Kenny
+	b. Create forums									//Done
 	c. Approve/remove club members						//Done
 3. Club members:
 	a. Create threads									//Done
@@ -16,6 +16,6 @@ We can use this to try and keep track on what is still needed, and who is curren
 	b. Change password									//Done
 	c. Send internal messages							//Done
 	d. Read/delete messages								//Done 
-	e. View clubs and forums							//Done but need to restrict viewing to only clubs the user is in
+	e. View clubs and forums							//Done
 	f. Join a club										//Done
 	g. Start/join a chat room							//Pernilla
