@@ -40,20 +40,30 @@ include('decideStatus.php');
 				
 			//create message information
 			$subject = "New club member request";
-			$msgText = "Hi ClubAdmin,<br />&#09$currentUser would like to join $clubname club. Go to the Club Admin" .
-				" page to add the user to your club.<br /><br />&#09&#09Sincerely,<br />&#09&#09Admin";
-			$sender = $username;
+			$msgText = "Hi ClubAdmin,<br /><br />&nbsp&nbsp&nbsp&nbsp$currentUser would like to join $clubname club. Go to the Club Admin" .
+				" page to add the user to your club.<br /><br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp".
+				"Sincerely,<br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdmin";
+			$sender = "SYSTEM";
 			$receiver = $row['userName'];
 			
 			//store the message in the mailbox
 			$tblName2 = "mailbox";
+			
+			$today = date("F j, Y, g:i a"); 
+			
 			//so that "from" field won't be empty, we should make it be from "SYSTEM"
 			$from = "SYSTEM";
 			$sql2 = "INSERT INTO $tblName2 (subject,msgText,sender,receiver,status,dateTime)
 				VALUES
+<<<<<<< HEAD
 				('$subject','$msgText','$from','$receiver','New',NOW())";
 			$result2 = @mysqli_query($con, $sql2);
 			$rows = @mysqli_fetch_array($result2);
+=======
+				('$subject','$msgText','$sender','$receiver','New','$today')";
+			$result2 = mysqli_query($con, $sql2);
+			$rows = mysqli_fetch_array($result2);
+>>>>>>> b0f27f60de09d8914ef23c7461f8847cc4cd4c3f
 			
 			if($result2)
 			{

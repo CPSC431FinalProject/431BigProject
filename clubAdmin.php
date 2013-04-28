@@ -32,7 +32,7 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 	if($value == 'appClubMem')
 	{ 
 		//add club member to clubMembers table
-		$sql = "INSERT INTO clubMembers VALUES('".$_POST['clubname']."','".$_POST['info']."','0')";
+		$sql = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','0')";
 		$result = mysqli_query($con,$sql);
 		
 		if($result)

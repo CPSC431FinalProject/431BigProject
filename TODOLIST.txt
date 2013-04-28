@@ -2,20 +2,20 @@ We can use this to try and keep track on what is still needed, and who is curren
 
 1. Administrator:
 	a. Create new clubs									//Done
-	b. Appoint club administrators						//Form is up, but not hooked up
+	b. Appoint club administrators						//Done
 	c. Ban users										//Form is up, but not hooked up
 2. Club administrators:
-	a. Edit club profile								//In club admin page, but not hooked up
-	b. Create forums									//Done but needs to be limited to only club admins and admins
-	c. Approve/remove club members						//Will be implemented as soon as we figure out members table 
+	a. Edit club profile								//Done
+	b. Create forums									//Kenny
+	c. Approve/remove club members						//Done
 3. Club members:
 	a. Create threads									//Done
 	b. Post to the forums								//Done
 4. Registered users:
 	a. Login with a registered username and password 	//Done
-	b. Change password									//Done, but needs to be debugged- won't change password currently
+	b. Change password									//Done
 	c. Send internal messages							//Done
-	d. Read/delete messages								//Done
-	e. View clubs and forums							//Done
-	f. Join a club										//sends request to admin, however need to add table to add the member to
+	d. Read/delete messages								//Done 
+	e. View clubs and forums							//Done but need to restrict viewing to only clubs the user is in
+	f. Join a club										//Done
 	g. Start/join a chat room							//Pernilla

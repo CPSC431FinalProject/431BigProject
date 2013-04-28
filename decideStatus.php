@@ -3,20 +3,23 @@ session_start();
 
 //if the user status is set already, then no need to re-query the database to get their status, it'll already be stored in session variable
 if(!isset($_SESSION['STATUS'])){
-			//query the database to see if the user that just logged in has admin priviladges
-			$sql = "SELECT * FROM users WHERE userName = '$currentUser'";
-			$result = mysqli_query($con,$sql);
-			$row = mysqli_fetch_array($result);
 			
 				//check and see if the user is a club admin	
-	if ($row['status'] == "clubAdmin"){
+	$sql = "SELECT clubAdmin FROM clubMembers WHERE userName = '$currentUser'";
+	$result = mysqli_query($con,$sql);
+	$row = mysqli_fetch_array($result);
+	if ($row['clubAdmin'] == "1"){
 			//since the result is equal to one, we know that the user is an admin
-			//setup to display the admin priviladges page
+			//setup to display the club admin priviladges page
 			$_SESSION['STATUS'] = "clubAdmin";
 			include('clubAdminHeader.html');
 			$_SESSION['NAV'] = 'home';
-		}	
+		}
+			
 	//check and see if a user is a full admin
+	$sql = "SELECT * FROM users WHERE userName = '$currentUser'";
+	$result = mysqli_query($con,$sql);
+	$row = mysqli_fetch_array($result);
 	if ($row['status'] == "admin"){
 				//since the result is equal to one, we know that the user is an admin
 				//setup to display the admin priviladges page
@@ -25,7 +28,7 @@ if(!isset($_SESSION['STATUS'])){
 				$_SESSION['NAV'] = 'home';
 			}
 	//the user was not a club admin, and not a full admin, so must be a regular user
-	if ($row['status'] == "USER"){
+	else if ($row['status'] == ""){
 			//grab the session type to know which type of pages the user is able to get
 			include('header.html');
 			$_SESSION['STATUS'] = 'USER';
