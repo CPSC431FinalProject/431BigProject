@@ -55,16 +55,11 @@ include('decideStatus.php');
 			$from = "SYSTEM";
 			$sql2 = "INSERT INTO $tblName2 (subject,msgText,sender,receiver,status,dateTime)
 				VALUES
-<<<<<<< HEAD
-				('$subject','$msgText','$from','$receiver','New',NOW())";
-			$result2 = @mysqli_query($con, $sql2);
-			$rows = @mysqli_fetch_array($result2);
-=======
 				('$subject','$msgText','$sender','$receiver','New','$today')";
+			$result2 = @mysqli_query($con, $sql2);
+			$rows = @mysqli_fetch_array($result2);	
 			$result2 = mysqli_query($con, $sql2);
-			$rows = mysqli_fetch_array($result2);
->>>>>>> b0f27f60de09d8914ef23c7461f8847cc4cd4c3f
-			
+			$rows = @mysqli_fetch_array($result2);
 			if($result2)
 			{
 				echo "Successful\t";
