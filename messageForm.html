@@ -1,8 +1,28 @@
+<?php
+
+//include the database connection
+include('mysql.connect.php');
+
+//query database for all members
+$sql = "SELECT userName,userFullName FROM users";
+$result = mysqli_query($con,$sql);
+
+?>
+
 <div id="contact-form" class="clearfix">  
-    <form method="post" action="newMessage.php">  
-        <label for="userTo">To: <span class="required">*</span></label>  
-        <input type="userTo" id="userTo" name="userTo" value="" placeholder="johndoe" required="required" />  
-		
+    <form method="post" action="newMessage.php">
+    
+    
+    	<label for="userTo">To: <span class="required">*</span></label>  
+    	<select id="userTo" name="userTo">
+    	<?php
+    		while($row = mysqli_fetch_array($result)) :
+    			echo "<option value='".$row['userName']."'>".$row['userFullName']." --".$row['userName']."--</option>";
+    		endwhile;
+    	?>
+    	</select>
+    	
+        
 		<label for="subject">Subject: <span class="required">*</span></label>  
         <input type="text" id="subject" name="subject" value="" placeholder="Subject" required="required" autofocus="autofocus" />  
           

@@ -10,17 +10,7 @@ include_once "mysql.connect.php";
 //grab the current users name
 $currentUser = $_SESSION['currentUser'];
 
-if ($_SESSION['STATUS'] == "ADMIN"){
-			//since the result is equal to one, we know that the user is an admin
-			//setup to display the admin priviladges page
-			$_SESSION['NAV'] = 'messages';
-			include_once('adminHeader.html');
-		}
-	else{
-		//grab the session type to know which type of pages the user is able to get
-		$_SESSION['NAV'] = 'messages';
-		include_once('header.html');
-	}	
+include('decideStatus.php');
 
 ?>
 <!-- content-wrap -->

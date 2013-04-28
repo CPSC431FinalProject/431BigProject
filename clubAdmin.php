@@ -8,13 +8,8 @@ $currentUser = $_SESSION['currentUser'];
 
 $_SESSION['NAV'] = 'clubAdmin';
 
-if($_SESSION['STATUS'] == "clubAdmin")
-	{
-		include('clubAdminHeader.html');
-	}
-	else{
-		header("Location:home.php");
-	}
+include('decideStatus.php');
+
 //connection to the database
 include_once "mysql.connect.php";
 
