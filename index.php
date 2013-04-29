@@ -144,12 +144,7 @@
 								$realName = $_POST['realName'];
 								$usernamesignup = $_POST['usernamesignup'];
 								$user = "USER";
-								
-								/* Used when trying to run a seperate register page.
-								$_SESSION['usernamesignup'] = $passWord;
-								$_SESSION['passWord2'] = $passWord2;
-								$_SESSION['realName'] = $realName;
-								$_SESSION['usernamesignup'] = $usernamesignup;*/
+							
 								
 								if($passWord != $passWord2)
 									{

@@ -67,44 +67,7 @@ include('decideStatus.php');
 				
 				
 				
-				<?php /* ?>
-				
-				
-				
-				<table border='1'>
-				
-				
-				
-			<?php
-			
-			
-			$tblName2 = "Post"; //Switch the table to query from
-			$sql2 = "SELECT * FROM $tblName2 WHERE ThreadNo = '$id'";
-			$result2 = mysqli_query($con,$sql2);
-			while($rows = mysqli_fetch_array($result2))
-			{ ?>
-				<tr>					
-					<td>
-						<?php echo $rows['Text']; ?>
-					</td>
-					<td>
-						By:<?php echo $rows['Username']; ?>
-					</td>
-					<td>
-						Posted at:<?php echo $rows['DateTime']; ?>
-					</td>
-				</tr>
-			
-			<?php
-			} 
-			
-			
-			
-			?>
-			
-				</table>
-				
-			<?php   */
+			<?php 
 			
 			$sql3 = "SELECT Views FROM $tblName WHERE id = '$id'";
 			$result3 = mysqli_query($con,$sql3);
