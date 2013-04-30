@@ -32,11 +32,18 @@ include_once "mysql.connect.php";
 						echo "<h3><center>No Open Chatrooms</center></h3>";
 					else:
 						echo "<div id=''>";
+						echo "<table>";
+						echo "<th>Chatroom</th><th>Started by</th>";
 						while($row = mysqli_fetch_array($result)) : ?>
 							<div id="">
-							<a href="chatroom.php?id=<?php echo $row['CRNo']; ?>">
-								<?php echo $row['title']; ?>&nbsp&nbsp&nbsp&nbsp&nbspStarted By: <?php echo $row['userName']; ?>
-							</a>
+							<tr>
+								<td>
+									<a href="chatroom.php?id=<?php echo $row['CRNo']; ?>">
+										<?php echo $row['title']; ?>
+									</a>
+								</td>
+								<td><?php echo $row['userName']; ?></td>
+							</tr>
 							</div>
 						<?php endwhile;
 						echo "</div>";

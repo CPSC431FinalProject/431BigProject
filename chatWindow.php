@@ -82,7 +82,7 @@ while($row = mysqli_fetch_array($result))
 </div>
 <br>
 <input name="message" type="text" id="textb" autofocus="autofocus" />
-<input name="submit" type="submit" value="Chat" id="post_button" style="height:35px />
+<input name="submit" type="submit" value="Chat" id="post_button" style="height:35px" />
 </form>
 </body>
 </html>

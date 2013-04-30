@@ -32,13 +32,10 @@ $id = $_GET['id'];
 				
 				<table>
 				<tr>
-					<table>
-					<tr>
-						<form id="close" method="post" action="closeChatroom.php">
-							<input type="hidden" value="<?php echo $id; ?>" name="id" />
-							<input type="submit" name="submit" value="Close Chatroom" />
-						</form>
-					</tr></table>
+					<form id="close" method="post" action="closeChatroom.php">
+						<input type="hidden" value="<?php echo $id; ?>" name="id" />
+						<input type="submit" name="submit" value="Close Chatroom" />
+					</form>
 				</tr></table>
 					
 				</div>
