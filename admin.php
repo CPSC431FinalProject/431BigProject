@@ -18,16 +18,13 @@ include_once('adminHeader.html');
 //connection to the database
 include_once "mysql.connect.php";
 
-
+//get value of the drop down list
+$value = $_POST['myDropDown'];	
 
 /* Code to add a user to the clubMembers table */
 
 if(!empty($_POST['clubname']) && !empty($_POST['info']))
-{
-	//get value of the drop down list
-	$value = $_POST['myDropDown'];			
-
-	
+{	
 	if($value == 'newClubAdmin')
 	{ 
 		//add club member to clubMembers table
@@ -51,23 +48,6 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 		}
 	}
 	
-	elseif($value == 'banUser')
-	{
-		//remove club member from clubMembers table
-		$sql = "DELETE FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
-		$result = mysqli_query($con,$sql);
-		
-		if($result)
-		{
-			$return = "<html><body onload=\"alert('Member removed from club');\"></body></html>";
-		}
-		else
-		{
-			$return = "<html><body onload=\"alert('Failed to remove user from club.');\"></body></html>";
-		}
-		
-	}
-	
 	elseif($value == 'clubDescription')
 	{
 		//Change club description
@@ -84,7 +64,28 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 		}
 	}
 	print $return;
+}	
+else if(!empty($_POST['info']))
+{
+	if($value == 'banUser')
+	{
+		//update status of user in users table to ban
+		$sql = "UPDATE users SET status = 'BAN' WHERE userName = '".$_POST['info']."'";
+		$result = mysqli_query($con,$sql);
+		
+		if($result)
+		{
+			$return = "<html><body onload=\"alert('Member banned from the site');\"></body></html>";
+		}
+		else
+		{
+			$return = "<html><body onload=\"alert('Failed to ban user.');\"></body></html>";
+		}
+		
+	}
+	print $return;
 }
+	
 ?>
 
 

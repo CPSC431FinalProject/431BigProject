@@ -63,7 +63,7 @@ include_once "mysql.connect.php";
 							</table>
 						</tr>
 						</table>
-					
+					</div>
 				</div>
 			</div>					
 				

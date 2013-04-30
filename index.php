@@ -38,7 +38,7 @@
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                                    <input id="userLog" name="userLog" required="required" type="text" placeholder="myusername"/>
+                                    <input id="userLog" name="userLog" required="required" type="text" placeholder="myusername" autofocus="autofocus" />
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Your password </label>
@@ -108,7 +108,7 @@
 								
 
 								//create sql string to retrieve the string from the database table "users"
-								$sql = "SELECT * FROM users WHERE userName = '$username' AND password = '$passwordHash'";
+								$sql = "SELECT * FROM users WHERE userName = '$username' AND password = '$passwordHash' AND status != 'BAN'";
 								$result = mysqli_query($con,$sql);
 								
 								if (mysqli_num_rows($result) == 1){
