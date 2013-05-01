@@ -26,23 +26,28 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 {	
 	if($value == 'newClubAdmin')
 	{ 
-		//add club member to clubMembers table
-		//check to see if user is already in the club
-		$sql = "SELECT * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
+		//check to see if username is a user first
+		$sql = "SELECT * FROM users WHERE userName = '".$_POST['info']."'";
 		$result = mysqli_query($con,$sql);
-		if(mysqli_num_rows($result) == 0)
+		if(mysqli_num_rows($result) == 1)
 		{
-			$sql2 = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','1')";
+			//add club member to clubMembers table
+			//check to see if user is already in the club
+			$sql2 = "SELECT * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
 			$result2 = mysqli_query($con,$sql2);
-		
-			if($result2)
+			if(mysqli_num_rows($result2) == 0)
 			{
-				$return = "<html><body onload=\"alert('Submitted Successfully');\"></body></html>";
+				$sql3 = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','1')";
+				$result3 = mysqli_query($con,$sql3);
+				if($result3)
+				{
+					$return = "<html><body onload=\"alert('Submitted Successfully');\"></body></html>";
+				}
 			}
-		}
-		else
-		{
-			$return = "<html><body onload=\"alert('User already a member of that club.';\"></body></html>";
+			else
+			{
+				$return = "<html><body onload=\"alert('User already a member of that club.';\"></body></html>";
+			}
 		}
 	}
 	

@@ -45,13 +45,4 @@ if(!empty($_POST['title']))
 	$title = $_POST['title'];
 	$sql = "INSERT INTO $tblName (userName,title) VALUES('$currentUser','$title')";
 	$result = mysqli_query($con,$sql);
-
-	if($result)
-	{
-		//successful popup
-	}
-	else
-	{
-		//failed popup
-	}
 }
