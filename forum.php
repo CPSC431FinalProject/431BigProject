@@ -35,8 +35,8 @@ $username = $_SESSION['currentUser'];
 			$sql = "SELECT * FROM $tblName WHERE clubName = '$clubname' AND userName = '$username' LIMIT 1";
 			$result = mysqli_query($con,$sql);
 			
-			//if user isnt in the club then dont populate the forum
-			if(mysqli_num_rows($result) == 1)
+			//if user isnt in the club then dont populate the forum unless user is ADMIN
+			if(mysqli_num_rows($result) == 1 || $_SESSION['STATUS'] == 'ADMIN')
 			{
 				//query the database for all the items inside the thread table to populate the forum
 				$tblName = "Thread";
