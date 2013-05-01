@@ -21,71 +21,86 @@ include_once "mysql.connect.php";
 //get value of the drop down list
 $value = $_POST['myDropDown'];	
 
-/* Code to add a user to the clubMembers table */
 
 if(!empty($_POST['clubname']) && !empty($_POST['info']))
 {	
 	if($value == 'newClubAdmin')
 	{ 
 		//add club member to clubMembers table
-		
-		
-		//
-		//
-		//TODO: check to see if there is already a club admin before inserting admin
-		//
-		//
-		$sql = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','1')";
+		//check to see if user is already in the club
+		$sql = "SELECT * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
 		$result = mysqli_query($con,$sql);
-		
-		if($result)
+		if(mysqli_num_rows($result) == 0)
 		{
-			$return = "<html><body onload=\"alert('Submitted Successfully');\"></body></html>";
+			$sql2 = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','1')";
+			$result2 = mysqli_query($con,$sql2);
+		
+			if($result2)
+			{
+				$return = "<html><body onload=\"alert('Submitted Successfully');\"></body></html>";
+			}
 		}
 		else
 		{
-			$return = "<html><body onload=\"alert('Failed to add user to club.');\"></body></html>";
+			$return = "<html><body onload=\"alert('User already a member of that club.';\"></body></html>";
 		}
 	}
 	
 	elseif($value == 'clubDescription')
 	{
-		//Change club description
-		$sql = "INSERT INTO clubs (clubName,picture,profile) VALUES('".$_POST['clubname']."','images/".$_POST['clubname'].".jpg','".$_POST['info']."')";
+		//make sure club doesnt exist
+		$sql = "SELECT * FROM clubs WHERE clubName = '".$_POST['clubname']."'";
 		$result = mysqli_query($con,$sql);
-		
-		if($result)
+		if(mysqli_num_rows($result) == 0)
 		{
-			$return = "<html><body onload=\"alert('Successfully changed');\"></body></html>";
+			//Change club description
+			$sql2 = "INSERT INTO clubs (clubName,picture,profile) VALUES('".$_POST['clubname']."','images/".$_POST['clubname'].".jpg','".$_POST['info']."')";
+			$result2 = mysqli_query($con,$sql2);
+		
+			if($result2)
+			{
+				$return = "<html><body onload=\"alert('Successfully changed');\"></body></html>";
+			}
 		}
 		else
 		{
-			$return = "<html><body onload=\"alert('Failed to change description.');\"></body></html>";
+			$return = "<html><body onload=\"alert('Club already exists.');\"></body></html>";
 		}
+			
 	}
 	print $return;
+	
 }	
-else if(!empty($_POST['info']))
+elseif(!empty($_POST['info']))
 {
 	if($value == 'banUser')
 	{
-		//update status of user in users table to ban
-		$sql = "UPDATE users SET status = 'BAN' WHERE userName = '".$_POST['info']."'";
+		//check to see if user exists
+		$sql = "SELECT * FROM users WHERE userName = '".$_POST['info']."' LIMIT 1";
 		$result = mysqli_query($con,$sql);
-		
 		if($result)
 		{
-			$return = "<html><body onload=\"alert('Member banned from the site');\"></body></html>";
+			//update status of user in users table to ban
+			$sql2 = "UPDATE users SET status = 'BAN' WHERE userName = '".$_POST['info']."'";
+			$result2 = mysqli_query($con,$sql2);
+		
+			if($result2)
+			{
+				$return = "<html><body onload=\"alert('Member banned from the site');\"></body></html>";
+			}
 		}
 		else
 		{
-			$return = "<html><body onload=\"alert('Failed to ban user.');\"></body></html>";
-		}
-		
+			$return = "<html><body onload=\"alert('User does not exist.');\"></body></html>";
+		}	
+	}
+	else
+	{
+		$return = "<html><body onload=\"alert('Failed to complete request.');\"></body></html>";
 	}
 	print $return;
 }
-	
+
 ?>
 
 
