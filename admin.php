@@ -46,8 +46,12 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 			}
 			else
 			{
-				$return = "<html><body onload=\"alert('User already a member of that club.';\"></body></html>";
+				$return = "<html><body onload=\"alert('User already a member of that club.');\"></body></html>";
 			}
+		}
+		else
+		{
+			$return = "<html><body onload=\"alert('User doesnt exist');\"></body></html>";
 		}
 	}
 	
