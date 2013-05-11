@@ -15,6 +15,7 @@ $tblName = "Post";
 
 //Get value of id that sent from hidden field
 $id = $_POST['id'];
+$clubname = $_POST['clubname'];
 $_SESSION['NAV'] = 'forum';
 include('decideStatus.php');
 ?>
@@ -29,7 +30,7 @@ include('decideStatus.php');
 			<div class="main-content">
 			
 			
-      	    <h2><a href="forum.php">Forum</a></h2>
+      	    <h2><a href="forum.php?id=<?php echo $clubname; ?>"><?php echo $clubname; ?> Forum</a></h2>
 			
 			<?php
 			
@@ -67,7 +68,7 @@ include('decideStatus.php');
 			if($result2)
 			{
 				echo "Successful\t";
-				echo "<a href='viewThread.php?id=".$id."'>View your answer</a>";
+				echo "<a href='viewThread.php?id=$id&club=$clubname'>View your answer</a>";
 				
 				//If added new answer, add value + 1 in reply column
 				$tblName2 = "Thread";

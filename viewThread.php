@@ -100,7 +100,9 @@ include('decideStatus.php');
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td><input name="id" type="hidden" value="<? echo $id; ?>"></td>
+						<td><input name="id" type="hidden" value="<? echo $id; ?>">
+							<input name="clubname" type="hidden" value="<? echo $clubname; ?>">
+						</td>
 						<td><input type="submit" name="Submit" value="Submit">
 							<input type="reset" name="Submit2" value="Reset">
 						</td>
