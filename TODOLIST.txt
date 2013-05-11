@@ -3,7 +3,7 @@ We can use this to try and keep track on what is still needed, and who is curren
 1. Administrator:
 	a. Create new clubs									//Done
 	b. Appoint club administrators						//Done
-	c. Ban users										//Form is up, but not hooked up
+	c. Ban users										//Done
 2. Club administrators:
 	a. Edit club profile								//Done
 	b. Create forums									//Done
@@ -19,3 +19,9 @@ We can use this to try and keep track on what is still needed, and who is curren
 	e. View clubs and forums							//Done
 	f. Join a club										//Done
 	g. Start/join a chat room							//Pernilla
+	
+Updates:
+  - picture upload for club admins
+  - double check all admin/club admin privilages. Ex. Make sure a club member exists
+		when making that user a club admin. create extra accounts to double check 
+		'addclubadmin' 'banuser' 'addclubmember', etc
