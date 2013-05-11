@@ -34,16 +34,20 @@ include('decideStatus.php');
 			<?php
 			
 			//Find highest answer number.
-			$sql = "SELECT MAX(id) AS MaxID FROM $tblName WHERE ThreadNo = '$id'";
+			$sql = "SELECT MAX(id) MaxID FROM $tblName WHERE ThreadNo = '$id'";
 			$result = mysqli_query($con, $sql);
 			$rows = mysqli_fetch_array($result);
+			
+			$sql2 = "SELECT MIN(id) MinID FROM $tblName WHERE ThreadNo = '$id'";
+			$result2 = mysqli_query($con, $sql2);
+			$rows2 = mysqli_fetch_array($result2);
 			
 			//add 1 to highest answer number and set it to "$MaxID". 
 			//If not set, set it to 1
 			
-			if($result)
+			if($result && $result2)
 			{
-				$MaxID = $rows['id']+1;
+				$MaxID = $rows['MaxID']-$rows2['MinID'] + 1;
 			}
 			else
 			{
@@ -67,6 +71,7 @@ include('decideStatus.php');
 				
 				//If added new answer, add value + 1 in reply column
 				$tblName2 = "Thread";
+				$MaxID ++;
 				$sql3 = "UPDATE $tblName2 SET Reply = '$MaxID' WHERE id = '$id'";
 				$result3 = mysqli_query($con,$sql3);
 			}
