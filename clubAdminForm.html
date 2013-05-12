@@ -1,18 +1,34 @@
-<div id="contact-form" class="clearfix">  
-    <form method="post" action="clubAdmin.php">  
-    
-    	<select name="myDropDown" id="myDropDown">
-    	<option value="appClubMem" selected>Approve Club Member:</option>
-    	<option value="remClubMem">Remove Club Member:</option>
-    	<option value="clubDescription">Edit Club Description:</option>
-    	</select>
-    	
-    	<input type="text" id="info" name="info" value="" placeholder="Username/Description" required='required'/>
-		
-    	<label for="clubname">Club: </label>
-    	<input type="text" id="clubname" name="clubname" value="" placeholder="Clubname" required='required' />
+<?php
 
-        <span id="loading"></span>  
-        <input type="submit" value="Change" id="submit-button" />  
-    </form>  
-</div>  
+$sql = "SELECT clubName FROM clubMembers WHERE userName = '$currentUser' AND clubAdmin = 1";
+$result = mysqli_query($con,$sql);
+?>
+
+<div id="contact-form" class="clearfix">  
+	<form method="post" action="clubAdmin.php" enctype="multipart/form-data">  
+	
+		<select name="myDropDown" id="myDropDown">
+		<option value="appClubMem" selected>Approve Club Member:</option>
+		<option value="remClubMem">Remove Club Member:</option>
+		<option value="clubDescription">Edit Club Description:</option>
+		<option value="clubPicture">Change Club Picture:</option>
+		</select>
+		
+		<input type="text" id="info" name="info" value="" placeholder="Username/Description"/>
+		
+		<label for="clubname">Club: </label>
+		<select name="clubDropDown" id="clubDropDown">
+		<option value="temp" selected>Select a Club</option>
+		<?php
+			while($rows = mysqli_fetch_array($result))
+			{
+				echo "<option value='".$rows['clubName']."'>".$rows['clubName']."</option>";
+			}
+		?>
+		</select>
+		
+		<input type="file" id="clubPic" name="clubPic" value="Upload Picture" />
+		<span id="loading"></span>  
+		<input type="submit" value="Change" id="submit-button" />  
+	</form>  
+</div>

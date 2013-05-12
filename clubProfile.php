@@ -38,7 +38,7 @@ include('decideStatus.php');
 				<div id="profile-wrapper">
 					
 					<div id="picture">
-						<?php echo "<img src='".$rows['picture']."'>"; ?>
+						<?php echo "<img src='".$rows['picture']."' width='300px' height='300px'>"; ?>
 					</div>
 					
 					<div id="description">
