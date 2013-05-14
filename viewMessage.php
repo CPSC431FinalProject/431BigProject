@@ -57,10 +57,9 @@ $id = $_GET['id'];
 								<?php echo $rows['msgText']; ?>
 							</div>
 							
-							<form action="delete.php" method="post" class="delete">
-							<input type="hidden" name="delete_id" id="delete_id" value="<?php echo $rows['id']; ?>" />
-						    <input type="submit" class="delete" value="Delete" />
-						    
+							<div class="navigation clearfix">
+								<a href="delete.php?id=<?php echo $rows['id']; ?>">Delete</a>
+						    </div>
 						    
 						  </form>
 						</li>

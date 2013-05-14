@@ -8,6 +8,9 @@ if(!isset($_SESSION['STATUS'])){
 	$sql = "SELECT * FROM users WHERE userName = '$currentUser'";
 	$result = mysqli_query($con,$sql);
 	$row = mysqli_fetch_array($result);
+	$sql2 = "SELECT clubAdmin FROM clubMembers WHERE userName = '$currentUser'";
+	$result2 = mysqli_query($con,$sql2);
+	$row2 = mysqli_fetch_array($result2);
 	if ($row['status'] == "admin"){
 				//since the result is equal to one, we know that the user is an admin
 				//setup to display the admin priviladges page
@@ -16,27 +19,21 @@ if(!isset($_SESSION['STATUS'])){
 				$_SESSION['NAV'] = 'home';
 			}
 	//the user was not a club admin, and not a full admin, so must be a regular user
-	else if ($row['status'] == "USER"){
+	else if ($row['status'] == "USER" && $row2['clubAdmin'] == 0){
 			//grab the session type to know which type of pages the user is able to get
 			include('header.html');
 			$_SESSION['STATUS'] = 'USER';
 		}
+	else if ($row2['clubAdmin'] == 1) {
+			include('clubAdminHeader.html');
+			$_SESSION['STATUS'] = 'clubAdmin';
+			$_SESSION['NAV'] = 'home';
+		}
+			
 	else if ($row['status'] == "BAN") {
 			//Log the user out to end the session, cant log back in
 			header('Location:logout.php');
 			}
-			
-					//check and see if the user is a club admin	
-	$sql = "SELECT clubAdmin FROM clubMembers WHERE userName = '$currentUser'";
-	$result = mysqli_query($con,$sql);
-	$row = mysqli_fetch_array($result);
-	if ($row['clubAdmin'] == "1"){
-			//since the result is equal to one, we know that the user is an admin
-			//setup to display the club admin priviladges page
-			$_SESSION['STATUS'] = "clubAdmin";
-			include('clubAdminHeader.html');
-			$_SESSION['NAV'] = 'home';
-		}
 }
 else{
 //check and see if the user is a club admin	

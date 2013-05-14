@@ -40,8 +40,9 @@ include('decideStatus.php');
 				
 			//create message information
 			$subject = "New club member request";
-			$msgText = "Hi ClubAdmin,<br /><br />&nbsp&nbsp&nbsp&nbsp$currentUser would like to join $clubname club. Go to the Club Admin" .
-				" page to add the user to your club.<br /><br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp".
+			$msgText = "Hi ClubAdmin,<br /><br />&nbsp&nbsp&nbsp&nbsp$currentUser would like to join $clubname club.<br /><br /> " .
+				"<div class=navigation clearfix>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href=approveMember.php?user=$currentUser&club=$clubname>" .
+				"Approve</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href=denyMember.php?user=$currentUser&club=$clubname>Deny</a></div><br /><br />" .
 				"Sincerely,<br />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdmin";
 			$sender = "SYSTEM";
 			$receiver = $row['userName'];
@@ -66,7 +67,7 @@ include('decideStatus.php');
 			}
 			else
 			{
-				echo "ERROR";
+				echo mysqli_error($con);
 			}	?>
 			
 			

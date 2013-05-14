@@ -48,11 +48,9 @@ include('decideStatus.php');
 			
 			if($result && $result2)
 			{
-				$MaxID = $rows['MaxID']-$rows2['MinID'] + 1;
-			}
-			else
-			{
-				$MaxID = 1;
+				$MaxID = $rows['MaxID']-$rows2['MinID'];
+				if($MaxID == 0)
+					$MaxID = 1;
 			}
 			
 			//get values from form

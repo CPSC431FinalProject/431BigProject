@@ -1,16 +1,18 @@
 <div id="contact-form" class="clearfix">  
-    <form method="post" action="admin.php">  
+    <form method="post" action="admin.php" enctype="multipart/form-data">  
 		
 		<select id="myDropDown" name="myDropDown">
 		<option value="newClubAdmin" selected>Appoint Club Admin:</option>
 		<option value="banUser">Ban User:</option>
 		<option value="clubDescription">Add New Club:</option>
+		</select>
 		
-		 <label for="newClub">Club: <span class="required"></span></label>  
-        <input type="text" id="clubname" name="clubname" value="" placeholder="Club Name" autofocus="autofocus" />
- 
+		<label for="newClub">Club: <span class="required"></span></label>  
+		<input type="text" id="clubname" name="clubname" placeholder="Clubname" />
         <input type="text" id="info" name="info" value="" placeholder="Username/Description" /> 
 
+		<input type="file" id="clubPic" name="clubPic" value="Upload Picture" />
+		
         <span id="loading"></span>  
         <input type="submit" value="Change" id="submit-button" />  
     </form>  

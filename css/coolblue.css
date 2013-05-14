@@ -1064,9 +1064,11 @@ ul.archive li .post-details span {
     padding-right: 5px;
     color: #999;
 }
-ul.archive li .post-details a:link,
+ul.archive li .post-details a:link {
+	color: white;
+}
 ul.archive li .post-details a:visited {
-    color: #1372a8;
+    color: #2177A5;
 }
 ul.archive li .post-details a:hover {
     color: #CC3300;

@@ -19,12 +19,76 @@ include_once('adminHeader.html');
 include_once "mysql.connect.php";
 
 //get value of the drop down list
-$value = $_POST['myDropDown'];	
+$value = $_POST['myDropDown'];
+$clubname = $_POST['clubname'];
 
 
-if(!empty($_POST['clubname']) && !empty($_POST['info']))
+if($value == 'clubDescription')
+{
+	if(!empty($_POST['info']) && !empty($_POST['clubname']) && !empty($_FILES['clubPic']))
+	{
+		$sql = "SELECT * FROM clubs WHERE clubName = '$clubname'";
+		$result = mysqli_query($con,$sql);
+		if(mysqli_num_rows($result) == 0)
+		{
+			//add club
+			$sql2 = "INSERT INTO clubs (clubName,picture,profile) VALUES('$clubname','images/".strtolower($clubname).".jpg','".$_POST['info']."')";
+			$result2 = mysqli_query($con,$sql2);
+			$club = $_FILES['clubPic'];
+			
+			if($result2)
+			{
+				//check to see image is a jpeg
+				if($club['type'] == "image/jpg" || $club['type'] == "image/jpeg")
+				{
+					//check file size
+					if($club['size'] < 1000000)
+					{
+						if($club['error'] > 0)
+						{
+							echo "Return error: " . $club['error'] . "<br />";
+						}
+						else
+						{
+							move_uploaded_file($club['tmp_name'], "images/" . strtolower($clubname) . ".jpg");
+							$return = "<html><body onload=\"alert('Successfully added club.');\"></body></html>";
+							
+						}
+					
+					}
+					else
+					{
+						$return = "<html><body onload=\"alert('File size too big.');\"></body></html>";
+					}
+				
+				}
+				else
+				{
+					$return = "<html><body onload=\"alert('Wrong file type.".$club['type']."');\"></body></html>";
+				}
+			}
+			else
+			{
+				$return = "<html><body onload=\"alert('Failed to insert club.');\"></body></html>";
+				
+			}
+		}
+		else
+		{
+			$return = "<html><body onload=\"alert('Club already exists.');\"></body></html>";
+		}
+			
+	}
+	else
+	{
+		$return = "<html><body onload=\"alert('Stuff is empty.I:".!empty($_POST['info'])."J".!empty($_POST['clubname'])."K".!empty($_FILES['clubPic'])."');\"></body></html>";
+	}
+	
+	print $return;
+}
+elseif($value == 'newClubAdmin')
 {	
-	if($value == 'newClubAdmin')
+	if(!empty($_POST['clubname']) && !empty($_POST['info']))
 	{ 
 		//check to see if username is a user first
 		$sql = "SELECT * FROM users WHERE userName = '".$_POST['info']."'";
@@ -33,11 +97,11 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 		{
 			//add club member to clubMembers table
 			//check to see if user is already in the club
-			$sql2 = "SELECT * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$_POST['clubname']."'";
+			$sql2 = "SELECT * FROM clubMembers WHERE userName = '".$_POST['info']."' AND clubName = '".$clubname."'";
 			$result2 = mysqli_query($con,$sql2);
 			if(mysqli_num_rows($result2) == 0)
 			{
-				$sql3 = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$_POST['clubname']."','".$_POST['info']."','1')";
+				$sql3 = "INSERT INTO clubMembers (clubName,userName,clubAdmin)VALUES('".$clubname."','".$_POST['info']."','1')";
 				$result3 = mysqli_query($con,$sql3);
 				if($result3)
 				{
@@ -55,34 +119,13 @@ if(!empty($_POST['clubname']) && !empty($_POST['info']))
 		}
 	}
 	
-	elseif($value == 'clubDescription')
-	{
-		//make sure club doesnt exist
-		$sql = "SELECT * FROM clubs WHERE clubName = '".$_POST['clubname']."'";
-		$result = mysqli_query($con,$sql);
-		if(mysqli_num_rows($result) == 0)
-		{
-			//Change club description
-			$sql2 = "INSERT INTO clubs (clubName,picture,profile) VALUES('".$_POST['clubname']."','images/".$_POST['clubname'].".jpg','".$_POST['info']."')";
-			$result2 = mysqli_query($con,$sql2);
-		
-			if($result2)
-			{
-				$return = "<html><body onload=\"alert('Successfully changed');\"></body></html>";
-			}
-		}
-		else
-		{
-			$return = "<html><body onload=\"alert('Club already exists.');\"></body></html>";
-		}
-			
-	}
+
 	print $return;
 	
 }	
-elseif(!empty($_POST['info']))
+elseif($value == 'banUser')
 {
-	if($value == 'banUser')
+	if(!empty($_POST['info']))
 	{
 		//check to see if user exists
 		$sql = "SELECT * FROM users WHERE userName = '".$_POST['info']."' LIMIT 1";

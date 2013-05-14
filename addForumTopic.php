@@ -10,6 +10,7 @@ include_once('mysql.connect.php');
 
 //Get the current users name
 $currentUser = $_SESSION['currentUser'];
+$clubname = $_POST['clubname'];
 
 $_SESSION['NAV'] = 'forum';
 include('decideStatus.php');	
@@ -25,13 +26,12 @@ include('decideStatus.php');
 			<div class="main-content">
 			
 			
-      	    <h2><a href="forum.php">Forum</a></h2>
+      	    <h2><a href="forum.php?id=<?php echo $clubname; ?>"><?php echo $clubname; ?> Forum</a></h2>
 			
 			<?php
 			//Store variables retrieved from POST
 			$title = $_POST['topic'];
 			$detail = $_POST['detail'];
-			$clubname = $_POST['clubname'];
 			$tblName = "Thread";
 			
 			$today = date("F j, Y, g:i a");

@@ -40,7 +40,7 @@ $username = $_SESSION['currentUser'];
 			{
 				//query the database for all the items inside the thread table to populate the forum
 				$tblName = "Thread";
-				$sql = "SELECT * FROM $tblName WHERE clubName = '$clubname' ORDER BY id DESC";
+				$sql = "SELECT * FROM $tblName WHERE clubName = '$clubname' ORDER BY DateTime DESC";
 				$result = mysqli_query($con,$sql);
 				?>
 
