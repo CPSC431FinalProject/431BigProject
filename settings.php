@@ -68,6 +68,25 @@ if(!empty($_POST['oldPassword']) && !empty($_POST['newPassword']) && !empty($_PO
       	    <h2><a href="settings.php">Change Password</a></h2>					
             </div>
 			
+			<div>
+				<div>You are an admin for these clubs:</div>
+				<?php
+				$sql = "SELECT * FROM clubMembers WHERE userName = '$currentUser' AND clubAdmin = 1";
+				$result = mysqli_query($con,$sql);
+				if($_SESSION['STATUS'] == 'ADMIN')
+				{
+					echo "<li>You are an admin</li>";
+				}
+				elseif($_SESSION['STATUS'] == 'clubAdmin')
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+						echo "<li>".$row['clubName']."</li>";
+					}
+				}
+				?>
+			</div>
+			
 			<?php
 			include_once('settingsForm.html');
 			?>

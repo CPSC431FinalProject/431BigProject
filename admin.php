@@ -170,6 +170,20 @@ elseif($value == 'banUser')
       	    <h2><a href="admin.php">Admin Settings</a></h2>					
             </div>
 			
+			<div id='tableHeader'>
+				<div id='tableTitle'><br />Club:      Admin</div>
+			
+			<?php
+			$sql = "SELECT * FROM clubMembers WHERE clubAdmin = 1";
+			$result = mysqli_query($con,$sql);
+			while($row = mysqli_fetch_array($result))
+			{ 
+				echo "<p>";
+				echo "<li>".$row['clubName'].":      ".$row['userName']."</li>";
+				echo "</p>";
+			} ?>
+			</div>
+			
 			<?php
 			include_once('adminForm.html');
 			?>
